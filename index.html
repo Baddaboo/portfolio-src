@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>🙃</title>
+    <script src="https://cdn.rawgit.com/chazgiese/EmojiGen/master/emojigen.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+    <style>
+        h1 {
+            font-size: 60px;
+            font-family: 'Lobster', cursive;
+            color: rgba(100, 100, 100, 1);
+        }
+        h2 {
+            font-size: 40px;
+            font-family: 'Roboto', sans-serif;
+            color: rgba(100, 100, 100, 1);
+        }
+        .intro-card {
+            position: fixed;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 300px;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        @supports not (backdrop-filter: blur(20px) or -webkit-backdrop-filter: blur(20px)) {
+            .intro-card {
+                background-color: rgba(255, 255, 255, 0.95);
+            }
+        }
+        .intro-header {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 10px;
+        }
+        .intro-sub-header {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 140px;
+        }
+        .row-container {
+            display: flex;
+            width: 100%;
+            vertical-align: middle;
+        }
+        .row-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body {
+            padding: 0;
+            background-color: white;
+        }
+    </style>
+</head>
+<body onmousemove="handleMouseMove(event)" onmouseleave="handleMouseOut()" onclick="handleMouseClick(event)">
+    <div class="emoji-background"></div>
+    <header class="intro-card">
+
+        <div class="intro-header">
+            <h1>Blake Tsuzaki</h1>
+        </div>
+        <div class="intro-sub-header">
+            <h2>✌️</h2>
+        </div>
+    </header>
+</body>
+<script>
+    var itemwidth = 80;
+    var spreadRadius = 0.4;
+    var rippleInc = 0.05;
+    var rippleDelay = 1;
+    var maxItemSize = 120;
+
+    var _rippleInProgress = false;
+    var _mouseOutside = false;
+    var _mousePosition;
+    function dimensions() {
+        this.height = Math.max(document.documentElement.clientHeight, window.innterHeight || 0);
+        this.width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    }
+    function position(x,y) {
+        this.x = x;
+        this.y = y;
+    }
+    function row(height, items) {
+        var rowContainer = document.createElement('div');
+        rowContainer.className = 'row-container';
+        rowContainer.style.height = height+"px";
+        for (j = 0; j < items; j++) {
+            var rowItem = document.createElement('div');
+            rowItem.className = 'row-item';
+            rowItem.innerHTML = getEmoji.randomEmoji();
+            rowContainer.appendChild(rowItem);
+        }
+        return rowContainer;
+    }
+    function populateWindow() {
+        var browserDimensions = new dimensions();
+        var numRowItems = Math.floor(browserDimensions.width / itemwidth);
+        var numItems = numRowItems * Math.ceil(browserDimensions.height / itemwidth);
+        var numRows = Math.ceil(numItems / numRowItems);
+        var itemWidth = browserDimensions.width/numRowItems;
+        var emojiBackground = document.querySelector('.emoji-background');
+        for (i = 0; i < numRows; i++) {
+            emojiBackground.appendChild(row(itemWidth, numRowItems));
+        }
+        var introCard = document.getElementsByClassName("intro-card")[0];
+        if (browserDimensions.width < 500) {
+            introCard.style.width = "100%";
+        }
+    }
+    function distance(a,b) {
+        var asquared = Math.pow(a.x-b.x, 2);
+        var bsquared = Math.pow(a.y-b.y, 2);
+        return Math.sqrt(asquared+bsquared);
+    }
+    function distanceForItem(item, _mousePosition) {
+        var _itemPosition = item.getBoundingClientRect();
+        var itemPosition = new position(_itemPosition.left+itemwidth/2, _itemPosition.top+itemwidth/2);
+        return this.distance(itemPosition, _mousePosition);
+    }
+    function sizeForItemDistance(item, _mousePosition) {
+        var newSize = Math.max(16, maxItemSize-distanceForItem(item, _mousePosition)*spreadRadius);
+        return newSize;
+    }
+    function sizeForItemRipple(item, stage, _mousePosition) {
+        return Math.max(16, maxItemSize*(0.5*(Math.sin((1-distanceForItem(item, _mousePosition) /100)+6.5*(stage+0.1))+1)));
+    }
+    function updateItemSizes(_mousePosition) {
+        var emojiItems = document.getElementsByClassName('row-item');
+        for (k = 0; k < emojiItems.length; k++) {
+            var item = emojiItems[k];
+            item.style.fontSize = sizeForItemDistance(item, _mousePosition)+"px";
+        }
+    }
+    function transitionToItemSize(transitionStage, items) {
+        for (k = 0; k < items.length; k++) {
+            var item = items[k];
+            var currentItemSize = parseFloat(item.style.fontSize);
+            var sizeForItemDistance = this.sizeForItemDistance(item, _mousePosition);
+            if (sizeForItemDistance != currentItemSize) {
+                var offset = Math.abs(currentItemSize-sizeForItemDistance) * transitionStage;
+                if (sizeForItemDistance > currentItemSize) {
+                    item.style.fontSize = currentItemSize + offset + "px";
+                } else {
+                    item.style.fontSize = currentItemSize - offset + "px";
+                }
+            }
+        }
+        if (transitionStage < 1.0) {
+            setTimeout(function(){ transitionToItemSize(transitionStage+rippleInc, items); }, rippleDelay);
+        } else {
+            _rippleInProgress = false;
+        }
+    }
+    function updateItemsForRippleStage(stage, items) {
+        var browserDimensions = new dimensions();
+        for (k = 0; k < items.length; k++) {
+            var item = items[k];
+            item.style.fontSize = this.sizeForItemRipple(item, stage, _mousePosition)+"px";
+        }
+        if (stage < 1.0) {
+            setTimeout(function(){ updateItemsForRippleStage(stage+rippleInc, items); }, rippleDelay);
+        } else {
+            setTimeout(function(){ transitionToItemSize(0.0, items); }, rippleDelay);
+        }
+    }
+    function transitionToNormalSize(transitionStage, items) {
+        for (k = 0; k < items.length; k++) {
+            var item = items[k];
+            var currentItemSize = parseFloat(item.style.fontSize);
+            var sizeForItemDistance = 16;
+            if (sizeForItemDistance != currentItemSize) {
+                var offset = Math.abs(currentItemSize-sizeForItemDistance) * transitionStage;
+                if (sizeForItemDistance > currentItemSize) {
+                    item.style.fontSize = currentItemSize + offset + "px";
+                } else {
+                    item.style.fontSize = currentItemSize - offset + "px";
+                }
+            }
+        }
+        if (transitionStage < 1.0 && !_rippleInProgress && _mouseOutside) {
+            setTimeout(function(){ transitionToNormalSize(transitionStage+rippleInc, items); }, rippleDelay);
+        }
+    }
+    function handleMouseMove(event) {
+        _mousePosition = new position(event.clientX,event.clientY);
+        _mouseOutside = false;
+        if (!_rippleInProgress) {
+            updateItemSizes(_mousePosition);
+        }
+    }
+    function handleMouseClick(event) {
+        _mousePosition = new position(event.clientX,event.clientY);
+        var emojiItems = document.getElementsByClassName('row-item');
+        if (!_rippleInProgress) {
+            _rippleInProgress = true;
+            updateItemsForRippleStage(0.0, emojiItems);
+        }
+    }
+    function handleMouseOut() {
+        var emojiItems = document.getElementsByClassName('row-item');
+        _mouseOutside = true;
+        transitionToNormalSize(0.0, emojiItems);
+    }
+    populateWindow();
+</script>
+</html>
