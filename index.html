@@ -16,6 +16,7 @@
             font-family: 'Roboto', sans-serif;
             color: rgba(100, 100, 100, 1);
         }
+        .emoji-background {}
         .intro-card {
             position: fixed;
             margin: auto;
@@ -84,10 +85,13 @@
     var rippleInc = 0.05;
     var rippleDelay = 1;
     var maxItemSize = 120;
+    var touchTapTimeLimit = 100;
 
     var _rippleInProgress = false;
     var _mouseOutside = false;
     var _mousePosition;
+    var _touchTapTimer;
+    var _touchShouldRipple = false;
     function dimensions() {
         this.height = Math.max(document.documentElement.clientHeight, window.innterHeight || 0);
         this.width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -100,7 +104,7 @@
         var rowContainer = document.createElement('div');
         rowContainer.className = 'row-container';
         rowContainer.style.height = height+"px";
-        for (j = 0; j < items; j++) {
+        for (g = 0; g < items; g++) {
             var rowItem = document.createElement('div');
             rowItem.className = 'row-item';
             rowItem.innerHTML = getEmoji.randomEmoji();
@@ -121,6 +125,7 @@
         var introCard = document.getElementsByClassName("intro-card")[0];
         if (browserDimensions.width < 500) {
             introCard.style.width = "100%";
+            introCard.style.borderRadius = "0px";
         }
     }
     function distance(a,b) {
@@ -142,14 +147,14 @@
     }
     function updateItemSizes(_mousePosition) {
         var emojiItems = document.getElementsByClassName('row-item');
-        for (k = 0; k < emojiItems.length; k++) {
+        for (h = 0; h < emojiItems.length; h++) {
             var item = emojiItems[k];
             item.style.fontSize = sizeForItemDistance(item, _mousePosition)+"px";
         }
     }
     function transitionToItemSize(transitionStage, items) {
-        for (k = 0; k < items.length; k++) {
-            var item = items[k];
+        for (i = 0; i < items.length; i++) {
+            var item = items[i];
             var currentItemSize = parseFloat(item.style.fontSize);
             var sizeForItemDistance = this.sizeForItemDistance(item, _mousePosition);
             if (sizeForItemDistance != currentItemSize) {
@@ -167,21 +172,9 @@
             _rippleInProgress = false;
         }
     }
-    function updateItemsForRippleStage(stage, items) {
-        var browserDimensions = new dimensions();
-        for (k = 0; k < items.length; k++) {
-            var item = items[k];
-            item.style.fontSize = this.sizeForItemRipple(item, stage, _mousePosition)+"px";
-        }
-        if (stage < 1.0) {
-            setTimeout(function(){ updateItemsForRippleStage(stage+rippleInc, items); }, rippleDelay);
-        } else {
-            setTimeout(function(){ transitionToItemSize(0.0, items); }, rippleDelay);
-        }
-    }
     function transitionToNormalSize(transitionStage, items) {
-        for (k = 0; k < items.length; k++) {
-            var item = items[k];
+        for (j = 0; j < items.length; j++) {
+            var item = items[j];
             var currentItemSize = parseFloat(item.style.fontSize);
             var sizeForItemDistance = 16;
             if (sizeForItemDistance != currentItemSize) {
@@ -195,6 +188,21 @@
         }
         if (transitionStage < 1.0 && !_rippleInProgress && _mouseOutside) {
             setTimeout(function(){ transitionToNormalSize(transitionStage+rippleInc, items); }, rippleDelay);
+        }
+    }
+    function updateItemsForRippleStage(stage, items) {
+        for (k = 0; k < items.length; k++) {
+            var item = items[k];
+            item.style.fontSize = this.sizeForItemRipple(item, stage, _mousePosition)+"px";
+        }
+        if (stage < 1.0) {
+            setTimeout(function(){ updateItemsForRippleStage(stage+rippleInc, items); }, rippleDelay);
+        } else if (_touchShouldRipple) {
+            _rippleInProgress = false;
+            _touchShouldRipple = false;
+            setTimeout(function(){ transitionToNormalSize(0.0, items); }, rippleDelay);
+        } else {
+            setTimeout(function(){ transitionToItemSize(0.0, items); }, rippleDelay);
         }
     }
     function handleMouseMove(event) {
@@ -217,6 +225,46 @@
         _mouseOutside = true;
         transitionToNormalSize(0.0, emojiItems);
     }
+    function handleTouchStart(event) {
+        _mousePosition = new position(event.pageX, event.pageY);
+        _mouseOutside = false;
+        if (_touchTapTimer)
+            clearTimeout(_touchTapTimer);
+        _touchShouldRipple = true;
+        _touchTapTimer = window.setTimeout(function(){ _touchShouldRipple = false;}, touchTapTimeLimit);
+    }
+    function handleTouchMove(event) {
+        _mousePosition = new position(event.pageX, event.pageY);
+        _mouseOutside = false;
+        event.preventDefault();
+        if (!_rippleInProgress) {
+            updateItemSizes(_mousePosition);
+        }
+    }
+    function handleTouchEnd(event) {
+        _mousePosition = new position(event.pageX, event.pageY);
+        _mouseOutside = true;
+        if (_touchTapTimer) {
+            clearTimeout(_touchTapTimer);
+        }
+        if (_touchShouldRipple) {
+            var emojiItems = document.getElementsByClassName('row-item');
+            if (!_rippleInProgress) {
+                _rippleInProgress = true;
+                updateItemsForRippleStage(0.0, emojiItems);
+            }
+        } else {
+            var emojiItems = document.getElementsByClassName('row-item');
+            transitionToNormalSize(0.0, emojiItems);
+        }
+    }
     populateWindow();
+    window.addEventListener('load', function(){
+        document.body.addEventListener('touchstart', handleTouchStart, false);
+        document.body.addEventListener('touchmove', handleTouchMove, false);
+        document.body.addEventListener('touchend', handleTouchEnd, false);
+        document.body.addEventListener('touchcancel', handleTouchEnd, false);
+        document.body.addEventListener('touchleave', handleTouchEnd, false);
+    }, false)
 </script>
 </html>
