@@ -104,7 +104,7 @@
         var rowContainer = document.createElement('div');
         rowContainer.className = 'row-container';
         rowContainer.style.height = height+"px";
-        for (g = 0; g < items; g++) {
+        for (var g = 0; g < items; g++) {
             var rowItem = document.createElement('div');
             rowItem.className = 'row-item';
             rowItem.innerHTML = getEmoji.randomEmoji();
@@ -147,13 +147,13 @@
     }
     function updateItemSizes(_mousePosition) {
         var emojiItems = document.getElementsByClassName('row-item');
-        for (h = 0; h < emojiItems.length; h++) {
-            var item = emojiItems[k];
+        for (var h = 0; h < emojiItems.length; h++) {
+            var item = emojiItems[h];
             item.style.fontSize = sizeForItemDistance(item, _mousePosition)+"px";
         }
     }
     function transitionToItemSize(transitionStage, items) {
-        for (i = 0; i < items.length; i++) {
+        for (var i = 0; i < items.length; i++) {
             var item = items[i];
             var currentItemSize = parseFloat(item.style.fontSize);
             var sizeForItemDistance = this.sizeForItemDistance(item, _mousePosition);
@@ -173,7 +173,7 @@
         }
     }
     function transitionToNormalSize(transitionStage, items) {
-        for (j = 0; j < items.length; j++) {
+        for (var j = 0; j < items.length; j++) {
             var item = items[j];
             var currentItemSize = parseFloat(item.style.fontSize);
             var sizeForItemDistance = 16;
@@ -191,7 +191,7 @@
         }
     }
     function updateItemsForRippleStage(stage, items) {
-        for (k = 0; k < items.length; k++) {
+        for (var k = 0; k < items.length; k++) {
             var item = items[k];
             item.style.fontSize = this.sizeForItemRipple(item, stage, _mousePosition)+"px";
         }
