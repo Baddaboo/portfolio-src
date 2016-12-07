@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>🙃</title>
+    <link rel="icon" href="img/favicon.png">
+    <title>_</title>
     <script src="https://cdn.rawgit.com/chazgiese/EmojiGen/master/emojigen.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.1.1.slim.min.js"   integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="   crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
     <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
     <style>
@@ -200,7 +203,7 @@
         setTimeout(function() {
             emojiRows[row].classList.add("row-item-active");
         }, 50*row);
-        if (row < emojiRows.length) {
+        if (row < emojiRows.length-1) {
             initAnimateRowIn(row+1, emojiRows);
         }
     }
@@ -365,6 +368,14 @@
         document.body.addEventListener('touchend', handleTouchEnd, false);
         document.body.addEventListener('touchcancel', handleTouchEnd, false);
         document.body.addEventListener('touchleave', handleTouchEnd, false);
-    }, false)
+    }, false);
+    $(function(){
+        $('title').typed({
+            strings: ["Blake Tsuzaki", "Software Engineer 💼", "Coffee Addict ☕️", "Unofficial Hacker 👾", "SCU Graduate 🎒", "I make stuff 👍"],
+            typeSpeed: 0,
+            backDelay: 2000,
+            loop: true
+        });
+    });
 </script>
 </html>
