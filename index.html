@@ -5,9 +5,9 @@
     <title>🙃</title>
     <script src="https://cdn.rawgit.com/chazgiese/EmojiGen/master/emojigen.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
+    <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
     <style>
         h1 {
-            font-size: 60px;
             font-family: 'Lobster', cursive;
             color: rgba(100, 100, 100, 1);
         }
@@ -15,6 +15,9 @@
             font-size: 40px;
             font-family: 'Roboto', sans-serif;
             color: rgba(100, 100, 100, 1);
+        }
+        i {
+            color: white;
         }
         .emoji-background {}
         .intro-card {
@@ -43,12 +46,17 @@
             width: 100%;
             text-align: center;
             top: 10px;
+            font-size: 30px;
         }
         .intro-sub-header {
             position: absolute;
-            width: 100%;
+            width: 80%;
             text-align: center;
-            top: 140px;
+            top: 155px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: flex;
         }
         .row-container {
             display: flex;
@@ -65,17 +73,67 @@
             padding: 0;
             background-color: white;
         }
+        * {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: -moz-none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        .header-icon {
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+            width: 80px;
+            margin: 10px;
+            transition:all 0.3s ease;
+        }
+        .header-icon:before {
+            content: "";
+            display: table;
+            padding-top: 100%;
+        }
+        .header-icon:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transition:all 0.3s ease;
+        }
+        .icon {
+            font-size: 30px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-49%);
+        }
     </style>
 </head>
-<body onmousemove="handleMouseMove(event)" onmouseleave="handleMouseOut()" onclick="handleMouseClick(event)">
-    <div class="emoji-background"></div>
+<body onmousemove="handleMouseMove(event)" onmouseleave="handleMouseOut()" onscroll="handlePageScroll()">
+    <div class="emoji-background" onclick="handleMouseClick(event)"></div>
     <header class="intro-card">
-
         <div class="intro-header">
             <h1>Blake Tsuzaki</h1>
         </div>
         <div class="intro-sub-header">
-            <h2>✌️</h2>
+            <a class="header-icon" href="https://www.linkedin.com/in/blake-tsuzaki-7a189084">
+                <div class="icon">
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </a>
+            <a class="header-icon" href="http://github.com/baddaboo">
+                <div class="icon" style="font-size: 40px">
+                    <i class="fa fa-github"></i>
+                </div>
+            </a>
+            <a class="header-icon" href="https://drive.google.com/open?id=0B-6zx2dePlWmcDRrVGJVdXE1cFE">
+                <div class="icon">
+                    <i class="fa fa-file-text-o"></i>
+                </div>
+            </a>
+            <a class="header-icon" href="mailto:dtsuzaki@scu.edu?Subject=Sup">
+                <div class="icon">
+                    <i class="fa fa-paper-plane-o"></i>
+                </div>
+            </a>
         </div>
     </header>
 </body>
@@ -90,6 +148,7 @@
     var _rippleInProgress = false;
     var _mouseOutside = false;
     var _mousePosition;
+    var _previousY = 0;
     var _touchTapTimer;
     var _touchShouldRipple = false;
     function dimensions() {
@@ -112,20 +171,34 @@
         }
         return rowContainer;
     }
+    function adjustForMobile() {
+        var introCard = document.getElementsByClassName("intro-card")[0];
+        var introText = document.getElementsByClassName("intro-header")[0];
+        var introSubText = document.getElementsByClassName("intro-sub-header")[0];
+        var introIcons = document.getElementsByClassName("header-icon");
+        introCard.style.width = "100%";
+        introCard.style.height = "200px";
+        introCard.style.borderRadius = "0px";
+        introText.style.fontSize = "20px";
+        introSubText.style.top = "100px";
+        introSubText.style.width = "90%";
+        for (var n = 0; n < introIcons.length; n++) {
+            introIcons[n].style.padding = "10px";
+        }
+        itemwidth = itemwidth/2;
+    }
     function populateWindow() {
         var browserDimensions = new dimensions();
+        if (browserDimensions.width < 500) {
+            adjustForMobile();
+        }
         var numRowItems = Math.floor(browserDimensions.width / itemwidth);
         var numItems = numRowItems * Math.ceil(browserDimensions.height / itemwidth);
         var numRows = Math.ceil(numItems / numRowItems);
         var itemWidth = browserDimensions.width/numRowItems;
         var emojiBackground = document.querySelector('.emoji-background');
-        for (i = 0; i < numRows; i++) {
+        for (var i = 0; i < numRows; i++) {
             emojiBackground.appendChild(row(itemWidth, numRowItems));
-        }
-        var introCard = document.getElementsByClassName("intro-card")[0];
-        if (browserDimensions.width < 500) {
-            introCard.style.width = "100%";
-            introCard.style.borderRadius = "0px";
         }
     }
     function distance(a,b) {
@@ -224,6 +297,13 @@
         var emojiItems = document.getElementsByClassName('row-item');
         _mouseOutside = true;
         transitionToNormalSize(0.0, emojiItems);
+    }
+    function handlePageScroll() {
+        _mousePosition.y += window.scrollY - _previousY;
+        _previousY = window.scrollY;
+        if (!_rippleInProgress) {
+            updateItemSizes(_mousePosition);
+        }
     }
     function handleTouchStart(event) {
         _mousePosition = new position(event.pageX, event.pageY);
