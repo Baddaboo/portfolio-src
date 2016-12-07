@@ -119,7 +119,7 @@
         }
     </style>
 </head>
-<body onmousemove="handleMouseMove(event)" onmouseleave="handleMouseOut()" onscroll="handlePageScroll()">
+<body onmousemove="handleMouseMove(event)" onmouseleave="handleMouseOut()" onscroll="handlePageScroll()" onresize="handleWindowResize()">
     <div class="emoji-background" onclick="handleMouseClick(event)"></div>
     <header class="intro-card">
         <div class="intro-header">
@@ -223,6 +223,13 @@
 
         var emojiRows = document.getElementsByClassName('row-container');
         initAnimateRowIn(0, emojiRows);
+    }
+    function handleWindowResize() {
+        var emojiBackground = document.querySelector('.emoji-background');
+        while (emojiBackground.firstChild) {
+            emojiBackground.removeChild(emojiBackground.firstChild);
+        }
+        populateWindow();
     }
     function distance(a,b) {
         var asquared = Math.pow(a.x-b.x, 2);
