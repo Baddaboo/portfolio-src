@@ -7,6 +7,7 @@
     <script src="https://cdn.rawgit.com/chazgiese/EmojiGen/master/emojigen.min.js"></script>
     <script   src="https://code.jquery.com/jquery-3.1.1.slim.min.js"   integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="   crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/mattboldt/typed.js/master/js/typed.js"></script>
+    <script src="https://cdn.rawgit.com/tinybigideas/jGravity/master/jGravity-min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
     <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
     <style>
@@ -149,6 +150,11 @@
         </div>
     </header>
 </body>
+<script async>
+function applyGravity(target) {
+    $(target).jGravity({ drag: true });
+}
+</script>
 <script>
     var itemwidth = 80;
     var spreadRadius = 0.4;
@@ -157,12 +163,14 @@
     var maxItemSize = 120;
     var touchTapTimeLimit = 100;
 
+    var _rippleDisabled = false;
     var _rippleInProgress = false;
     var _mouseOutside = false;
     var _mousePosition;
     var _previousY = 0;
     var _touchTapTimer;
     var _touchShouldRipple = false;
+    var _gravityApplied = false;
     function dimensions() {
         this.height = Math.max(document.documentElement.clientHeight, window.innterHeight || 0);
         this.width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -207,6 +215,11 @@
             initAnimateRowIn(row+1, emojiRows);
         }
     }
+    function placeRandoms() {
+        var emojiItems = document.getElementsByClassName('row-item');
+        var randIdx = Math.floor(Math.random()*(emojiItems.length));
+        emojiItems[randIdx].innerHTML = "💣";
+    }
     function populateWindow() {
         var browserDimensions = new dimensions();
         if (browserDimensions.width < 500) {
@@ -223,6 +236,7 @@
 
         var emojiRows = document.getElementsByClassName('row-container');
         initAnimateRowIn(0, emojiRows);
+        placeRandoms();
     }
     function handleWindowResize() {
         var emojiBackground = document.querySelector('.emoji-background');
@@ -315,10 +329,27 @@
             updateItemSizes(_mousePosition);
         }
     }
+    function handleAlternateCharacter(target) {
+        var emojiItems = document.getElementsByClassName('row-item');
+        if (target.innerHTML == "💣") {
+            for (var q = 0; q < emojiItems.length; q++) {
+                applyGravity(emojiItems[q]);
+            }
+            _rippleDisabled = true;
+            _gravityApplied = true;
+            return true;
+        }
+        return false;
+    }
     function handleMouseClick(event) {
+        if (event.target.classList.contains("row-item")) {
+            var clickItem = event.target;
+            if (handleAlternateCharacter(clickItem))
+                return;
+        }
         _mousePosition = new position(event.clientX,event.clientY);
         var emojiItems = document.getElementsByClassName('row-item');
-        if (!_rippleInProgress) {
+        if (!_rippleInProgress && !_rippleDisabled) {
             _rippleInProgress = true;
             updateItemsForRippleStage(0.0, emojiItems);
         }
