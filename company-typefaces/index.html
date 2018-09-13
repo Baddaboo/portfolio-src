@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tech Company Font Comparison</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Tech Company Font Comparison</h1>
+    <div id="controls">
+        <div class="control">
+            <h3>Enter some Text</h3>
+            <input type="text" v-model="text">
+        </div>
+        <div class="control">
+            <h3>Comparison Mode</h3>
+            <input id="comparisonCheck" type="checkbox" v-model="squash">
+            <label for="comparisonCheck">Enabled</label>
+        </div>
+    </div>
+    <div id="container">
+        <div v-for="font in fonts" :key="font" :class="[{squashed: squash}]">
+            <font-item :font="font" :text="text"></font-item>
+        </div>
+    </div>
+</div>
+
+<script>
+    Vue.component('font-item', {
+        data() {
+            return {
+                spacing: 0
+            }
+        },
+        props: ['font', 'text'],
+        template: '<div><h2>{{font}}</h2><p class="fontDisplay" :style="{fontFamily: font, letterSpacing: spacing/10 + \'px\'}">{{text}}</p><input type="range" min="0" max="100" class="slider" v-model="spacing" id="slider"><label for="slider">Spacing: {{spacing/10}}</label></div>'
+    });
+    new Vue({
+        el: '#app',
+        data: {
+            sectionClass: "section",
+            fonts: [
+                "Uber Move",
+                "Google Product Sans",
+                "Netflix Sans",
+                "Airbnb Cereal"
+            ],
+            text: "The Quick Brown Fox",
+            squash: false
+        }
+    });
+</script>
+
+<style>
+    #app {
+        padding-left: 20px;
+    }
+    #controls {
+        display: flex;
+    }
+    #container {
+        padding-top: 20px;
+    }
+    @font-face {
+        font-family: "Google Product Sans";
+        src: url("fonts/Product Sans Bold.woff") format('woff');
+    }
+    @font-face {
+        font-family: "Airbnb Cereal";
+        src: url("fonts/AirbnbCereal_W_XBd.woff") format('woff');
+    }
+    @font-face {
+        font-family: "Uber Move";
+        src: url("fonts/5a24cec0c5737108ba83f5f3ba933066.woff") format('woff');
+    }
+    @font-face {
+        font-family: "Netflix Sans";
+        src: url("fonts/NetflixSans_W_Bd.woff2") format('woff2');
+    }
+    p {
+        font-size: 80px;
+        line-height: 0;
+    }
+    label {
+        padding-left: 10px;
+    }
+    .control {
+        padding-right: 50px;
+    }
+    .squashed {
+        position: absolute;
+        opacity: 0.5;
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,107 @@
+h1 {
+    font-family: 'Lobster', cursive;
+    color: rgba(100, 100, 100, 1);
+}
+h2 {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(100, 100, 100, 1);
+}
+i {
+    color: white;
+}
+.emoji-background {}
+.intro-card {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 300px;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+@supports not (backdrop-filter: blur(20px) or -webkit-backdrop-filter: blur(20px)) {
+    .intro-card {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+}
+.intro-header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 10px;
+    font-size: 30px;
+}
+.intro-sub-header {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    top: 155px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+}
+.row-container {
+    display: flex;
+    width: 100%;
+    vertical-align: middle;
+    opacity: 0;
+}
+.row-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes fadeInFromNone {
+    0% {  opacity: 0;  }
+    100% {  opacity: 1;  }
+}
+.row-item-active {
+    animation:fadeInFromNone 1s ease;
+    opacity: 1;
+}
+body {
+    padding: 0;
+    background-color: white;
+}
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+.header-icon {
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 80px;
+    margin: 10px;
+    transition:all 0.3s ease;
+}
+.header-icon:before {
+    content: "";
+    display: table;
+    padding-top: 100%;
+}
+.header-icon:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transition:all 0.3s ease;
+}
+.icon {
+    font-size: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-49%);
+}
