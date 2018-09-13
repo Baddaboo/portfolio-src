@@ -13,6 +13,10 @@
             <input type="text" v-model="text">
         </div>
         <div class="control">
+            <h3>Font Size</h3>
+            <input type="number" v-model="fontSize">
+        </div>
+        <div class="control">
             <h3>Comparison Mode</h3>
             <input id="comparisonCheck" type="checkbox" v-model="squash">
             <label for="comparisonCheck">Enabled</label>
@@ -20,7 +24,7 @@
     </div>
     <div id="container">
         <div v-for="font in fonts" :key="font" :class="[{squashed: squash}]">
-            <font-item :font="font" :text="text"></font-item>
+            <font-item class="fontItem" :font="font" :text="text" :size="fontSize"></font-item>
         </div>
     </div>
 </div>
@@ -32,8 +36,8 @@
                 spacing: 0
             }
         },
-        props: ['font', 'text'],
-        template: '<div><h2>{{font}}</h2><p class="fontDisplay" :style="{fontFamily: font, letterSpacing: spacing/10 + \'px\'}">{{text}}</p><input type="range" min="0" max="100" class="slider" v-model="spacing" id="slider"><label for="slider">Spacing: {{spacing/10}}</label></div>'
+        props: ['font', 'text', 'size'],
+        template: '<div><h2>{{font}}</h2><p class="fontDisplay" :style="{fontFamily: font, letterSpacing: spacing + \'px\', fontSize: size + \'px\'}">{{text}}</p><input type="range" min="0" step="0.1" max="10" class="slider" v-model="spacing" id="slider"><label for="slider">Spacing: </label><input type="number" v-model="spacing"></div>'
     });
     new Vue({
         el: '#app',
@@ -46,6 +50,7 @@
                 "Airbnb Cereal"
             ],
             text: "The Quick Brown Fox",
+            fontSize: 80,
             squash: false
         }
     });
@@ -78,11 +83,15 @@
         src: url("fonts/NetflixSans_W_Bd.woff2") format('woff2');
     }
     p {
-        font-size: 80px;
-        line-height: 0;
+        margin: 0 0 20px 0;
+        line-height: 100%;
+        padding: 0;
     }
     label {
         padding-left: 10px;
+    }
+    .fontItem {
+        padding-bottom: 20px;
     }
     .control {
         padding-right: 50px;
