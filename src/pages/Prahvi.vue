@@ -122,7 +122,7 @@
         For our second milestone, we got to work building a functional prototype
         that incorporated all three aspects of our project: Computer Vision,
         Text Processing, and Hardware & Voice User Interfaces. To expedite
-        development, we had been developing the three parts in parallel.
+        development, we worked on the three parts in parallel.
       </page-paragraph>
       <spacer vertical="30px" />
       <page-paragraph>
@@ -136,9 +136,9 @@
       <page-paragraph>
         <h3>Text Processing</h3>
         Depending on the mode the system is in, we apply different text
-        processing techniques. We used a model that was trained using a corpus
-        of articles gathered from the <strong>New York Times</strong> and is
-        publicly available.
+        processing techniques. We used a natural language processing model that
+        was trained using a corpus of articles gathered from the <strong>New York
+        Times</strong> and is publicly available.
         <page-double-section :proportion="40">
           <page-image slot="left" :src="prahviVui" type="full"/>
           <div slot="right">
@@ -163,7 +163,7 @@
         <spacer vertical="30px" />
         The voice user interface was manually run from a laptop using a script
         that called the system speech synthesis routine. At this point, we were
-        able to run each individual part of the device manually with a tester.
+        able to run each individual part of the device manually with testers.
         <br />
         <page-image :src="prahviDevice" />
       </page-paragraph>
@@ -172,35 +172,43 @@
       <page-sub-header title="Testing + M3 Device" />
       <page-paragraph>
         By the time we reached our third milestone, testing had shown that our
-        system was mostly complete - but there was something missing. We found
-        through testing and our own heuristics that <strong>users would often
-        need to go rewind in the voice interface to catch something they missed
-        or fast-forward to skip parts that were not relevant.</strong> Since the
+        system was mostly complete - but something was missing. We found through
+        testing and our own heuristics that <strong>users would often need to go
+        rewind in the voice interface to catch something they missed or fast-forward to skip parts that were not relevant.</strong> Since the
         device already requires a smartphone for processing, we added a touch
         interface for it as well.
         <page-double-section :proportion="30">
           <page-image slot="left" :src="prahviScreen" type="full" />
           <p slot="right">
-            The interface, affectionately called <strong>SpeedReader</strong> is
-            dominated by a large gesture area (orange) along with a readout of
+            The interface, affectionately called <strong>SpeedReader</strong>,
+            encompasses a large gesture area (orange) along with a readout of
             the current text above it for users with limited vision to follow
             along.
           </p>
         </page-double-section>
         <page-double-section>
           <div slot="left">
-            <page-image :src="prahviPlay" />
+            <page-image :src="prahviPlay" :shadow="true" />
             SpeedReader displays the voice interface output and highlights the
             current word the headset is dictating to indicate where the user is
             in the passage.
           </div>
           <div slot="right">
-            <page-image :src="prahviScrub" />
+            <page-image :src="prahviScrub" :shadow="true" />
             At any point, the user can swipe on the gesture area to rewind or
             fast-forward the readout. Devices that support 3D Touch will even
             subtly vibrate on each word.
           </div>
         </page-double-section>
+      </page-paragraph>
+      <page-paragraph>
+        <page-image :src="prahviParts" />
+        We also used this milestone to evaluate the industrial design and
+        manufacturability of PRAHVI. The system was built around the Rasbperry
+        Pi Zero, and although it has a small, lightweight profile, the device
+        itself was still about the size and weight of a small pack of gum. In
+        a future iteration, we could remove unnecessary components and
+        manufacture our own board.
       </page-paragraph>
     </page-section>
     <page-section>
@@ -211,21 +219,24 @@
         visual impairment, we ran tests amongst ourselves and participants we
         recruited. Additional testing also improved the accuracy of the OpenCV
         models.
+        <spacer vertical="30px" />
+        People responded fairly positively to the technology and the
+        interface in general. This was likely helped by the fact that
+        documents, when recognized correctly, achieved accuracy rates <strong>as high as 95%</strong> in some cases. The use of
+        alternative senses, sound and haptics, were seen as <strong>helpful
+        and clever ways to interact</strong>. On top of that, we achieved a device with a bill of materials below $50 making it theoretically
+        <strong>much more affordable</strong> than other accessibility
+        devices.
+        <spacer vertical="30px" />
         <page-double-section :proportion="30">
           <page-image slot="left" :src="prahviAlicia" />
           <p slot="right">
-            People responded fairly positively to the technology and the
-            interface in general. This was likely helped by the fact that
-            documents, when recognized correctly, achieved accuracy rates as
-            high as 95% in some cases. The use of alternative senses, sound and
-            haptics, were seen as helpful and clever ways to interact.
-            <spacer vertical="30px" />
-            As for points of improvement, we fell short on our goal of
-            miniaturizing the device into a form factor that would not stand out
-            in public. The Raspberry Pi Zero was smallest development board that
-            provided the hardware specifications we needed. Additionally, the
-            device was only tested in indoor environments and the white-balance
-            algorithms failed constantly when used outside, in sunny California.
+            As for points of improvement, we <strong>fell short on our goal of
+            miniaturizing the device</strong> into a form factor that would not
+            stand out in public. The Raspberry Pi Zero was smallest development
+            board that provided the hardware specifications we needed.
+            Additionally, the device was only tested in indoor environments and
+            <strong>our white-balance and blur-detection algorithms failed constantly when used outside</strong> in sunny California.
           </p>
         </page-double-section>
       </page-paragraph>
@@ -257,6 +268,7 @@ export default {
       prahviPlay: require('../assets/prahvi-playback.gif'),
       prahviHand: require('../assets/prahvi-hand.png'),
       prahviAlicia: require('../assets/prahvi-alicia.png'),
+      prahviParts: require('../assets/prahvi-parts.png'),
       teamItems: [
         {
           name: 'Yang Li',
@@ -282,5 +294,4 @@ export default {
 </script>
 
 <style>
-
 </style>

@@ -5,17 +5,17 @@
       <p>{{role}}</p>
     </div>
     <div v-if="process != null">
-      <spacer vertical="20px" />
+      <spacer v-if="role != null" vertical="20px" />
       <h4>Process</h4>
       <p>{{process}}</p>
     </div>
     <div v-if="tools != null">
-      <spacer vertical="20px" />
+      <spacer v-if="process != null || role != null" vertical="20px" />
       <h4>Tools</h4>
       <p>{{tools}}</p>
     </div>
     <div v-for="item in additional" :key="item.id">
-      <spacer v-if="!noOtherTexts" vertical="20px" />
+      <spacer v-if="!noOtherTexts()" vertical="20px" />
       <h4>{{item.title}}</h4>
       <p>{{item.content}}</p>
     </div>

@@ -58,6 +58,7 @@ export default {
 @media screen and (max-width: 600px) {
   .doublesection-container {
     flex-direction: column;
+    align-items: stretch;
   }
 }
 

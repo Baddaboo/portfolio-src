@@ -3,15 +3,24 @@
     <page-hero :image-src="classicKitCover" />
     <page-section>
       <page-header title="ClassicKit" />
-      <page-paragraph>
-        ClassicKit is an exploration into applying 90's-era design and
-        principles into a modern platform using primitive components
-        (i.e. buttons, sliders, text input). This is a drop-in
-        framework that can be used with any iOS project! The verbose
-        information architecture and low-contrast styling presents a
-        contrast to current platforms' simplistic, yet expressive,
-        high-definition design patterns.
-      </page-paragraph>
+      <page-double-section :proportion="60">
+        <p slot="left">
+          ClassicKit is an exploration into applying 90's-era design and
+          principles into a modern platform using primitive components
+          (i.e. buttons, sliders, text input). This is a drop-in
+          framework that can be used with any iOS project! The verbose
+          information architecture and low-contrast styling presents a
+          contrast to current platforms' simplistic, yet expressive,
+          high-definition design patterns.
+          <spacer vertical="30px" />
+        </p>
+        <page-glance slot="right"
+          tools="iOS, Core Animation, UIKit, Interface Builder, @IBDesignable and @IBInspectable Patterns"
+          color="#73c5c9" :additional="[
+            { title: 'Type', content: 'Design Exploration' },
+            { title: 'At a Glance', content: '2000+ stars on GitHub, reached #1 on Hacker News, featured in tech blogs' }
+          ]"></page-glance>
+      </page-double-section>
     </page-section>
     <page-section>
       <page-sub-header title="Exploration" />

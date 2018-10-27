@@ -42,7 +42,7 @@ export default {
           bgSrc: require('../assets/easylayout-bg.png'),
           fgSrc: require('../assets/easylayout-fg.png'),
           fgText: 'EasyLayout (Coming Soon)',
-          // link: '/easylayout'
+          link: '/easylayout'
         },
         { color: '#3b5998',
           fgSrc: require('../assets/facebook-fg.png'),

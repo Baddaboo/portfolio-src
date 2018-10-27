@@ -1,7 +1,7 @@
 <template>
   <div class="inner-container">
     <spacer vertical="30px" />
-    <img :class="[imageType, responsive ? 'responsive-container' : '']" :src="src" />
+    <img :class="[imageType, responsive ? 'responsive-container' : '', shadow ? 'image-shadow' : '']" :src="src" />
     <spacer vertical="30px" />
   </div>
 </template>
@@ -20,6 +20,10 @@ export default {
     responsive: {
       type: Boolean,
       default: true
+    },
+    shadow: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -55,5 +59,8 @@ export default {
   width: 100%;
   display: inline-block;
   text-align: center;
+}
+.image-shadow {
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
 }
 </style>
