@@ -62,7 +62,8 @@ const router = new VueRouter({
         resolve({ x: 0, y: 0 })
       }, 500)
     })
-  }
+  },
+  mode: 'history'
 })
 
 export const global = new Vue({
