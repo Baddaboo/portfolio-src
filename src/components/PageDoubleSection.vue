@@ -1,10 +1,10 @@
 <template>
   <div class="doublesection-container">
-    <div class="left" :style="isMobile ? 'full-width' : leftStyle">
+    <div class="left" :style="[isMobile ? 'full-width' : leftStyle]">
       <slot name="left" />
     </div>
     <spacer horizontal="30px" />
-    <div class="right" :style="isMobile ? 'full-width' : rightStyle">
+    <div class="right" :style="[isMobile ? 'full-width' : rightStyle]">
       <slot name="right" />
     </div>
   </div>

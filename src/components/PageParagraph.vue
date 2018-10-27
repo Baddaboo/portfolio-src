@@ -21,7 +21,7 @@ export default {
   text-align: justify;
   margin: auto;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
   .page-paragraph-text {
     width: 100%;
   }

@@ -30,13 +30,13 @@ export default {
           bgSrc: require('../assets/ck-bg.png'),
           fgSrc: require('../assets/ck-logo.png'),
           fgText: 'ClassicKit',
-          // link: '/classickit'
+          link: '/classickit'
         },
         { color: 'rgba(255, 0, 0, 0.5)',
           bgSrc: require('../assets/prahvi-bg.png'),
           fgSrc: require('../assets/prahvi-logo.png'),
           fgText: 'PRAHVI (Wearable)',
-          // link: '/prahvi'
+          link: '/prahvi'
         },
         { color: 'rgba(255, 0, 255, 0.5)',
           bgSrc: require('../assets/easylayout-bg.png'),
