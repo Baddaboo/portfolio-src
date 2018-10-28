@@ -29,9 +29,8 @@
     <page-section>
       <page-sub-header title="The Old Way" />
       <page-paragraph>
-        AutoLayout is a great way to create responsive layouts in iOS,
-        but implementing it in an app meant making significant
-        tradeoffs.
+        AutoLayout is a great system for creating responsive layouts in iOS,but
+        implementing it in an app can be frustrating and limited.
         <spacer vertical="30px" />
         <page-image :src="easyXcode" />
         One way to use AutoLayout was by using Interface
@@ -55,7 +54,7 @@
               would also have to add to disable the autoresizing mask
               constraints and activate the constraints for UIKit to recognize
               them. Then to animate, we'd have to manage which layout is
-              activate to disable it while the system redraws...
+              active to disable it while the system redraws...
             </p>
           </div>
           <page-image slot="right" :src="easyOldCodeAll" />
@@ -83,7 +82,7 @@
         </page-double-section>
         Simply call the replace function within an animation block, and the
         layout will animate using the standard UIView animation routine. You can
-        do things, like animate the height of a button (literally ☝️). Animating
+        do things like animate the height of a button (literally ☝️). Animating
         constraints was almost unheard of in the world of iOS and macOS
         development, but is now incredibly simple.
         <spacer vertical="30px" />
@@ -103,7 +102,7 @@
         app (that I know of) that will ship with this framework. I continue to
         develop on it, adding features and ironing out the bugs. My long-term
         goal is to create a system of high-level layouts and techniques so that
-        <strong>hopefully defining a dynamic layout will be as simple as putting
+        <strong>defining a dynamic layout will be as simple as putting
         a pen on paper. </strong>
       </page-paragraph>
     </page-section>
