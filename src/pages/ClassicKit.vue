@@ -16,10 +16,16 @@
         </p>
         <page-glance slot="right"
           tools="iOS, Core Animation, UIKit, Interface Builder, @IBDesignable and @IBInspectable Patterns"
-          color="#73c5c9" :additional="[
+          color="#73c5c9"
+          :link="{
+            url: 'https://github.com/Baddaboo/ClassicKit',
+            text: 'Visit on GitHub'
+          }"
+          :additional="[
             { title: 'Type', content: 'Design Exploration' },
-            { title: 'At a Glance', content: '2000+ stars on GitHub, reached #1 on Hacker News, featured in tech blogs' }
-          ]"></page-glance>
+            { title: 'At a Glance', content: '2000+ stars on GitHub, reached #1 on Hacker News, and featured in tech blogs' }
+          ]">
+        </page-glance>
       </page-double-section>
     </page-section>
     <page-section>

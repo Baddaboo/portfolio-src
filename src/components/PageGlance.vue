@@ -19,6 +19,15 @@
       <h4>{{item.title}}</h4>
       <p>{{item.content}}</p>
     </div>
+    <div v-if="link != null">
+      <spacer vertical="30px" />
+      <a :href="link.url" class="link glance-link">
+        {{link.text == null ? link.url : link.text}}
+        <div>
+          <font-awesome-icon class="go-icon" icon="arrow-alt-circle-right" />
+        </div>
+      </a>
+    </div>
     <slot />
   </color-container>
 </template>
@@ -39,7 +48,8 @@ export default {
     tools: String,
     additional: Array,
     color: String,
-    textColor: String
+    textColor: String,
+    link: Object
   },
   methods: {
     noOtherTexts () {
@@ -60,5 +70,15 @@ export default {
 <style scoped>
 h4 {
   margin: 0 0 10px 0;
+}
+.glance-link {
+  color: #2c3e50;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.go-icon {
+  padding-top: 3px;
+  padding-left: 10px;
 }
 </style>

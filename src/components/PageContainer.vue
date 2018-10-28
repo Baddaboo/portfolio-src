@@ -3,12 +3,18 @@
     <div class="inner-container">
       <slot />
     </div>
+    <spacer vertical="100px" />
   </div>
 </template>
 
 <script>
+import Spacer from './Spacer.vue'
+
 export default {
-  name: 'PageContainer'
+  name: 'PageContainer',
+  components: {
+    Spacer
+  }
 }
 </script>
 

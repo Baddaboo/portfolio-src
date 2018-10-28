@@ -91,6 +91,9 @@ export const global = new Vue({
       this.sizeClass = newValue
       this.$emit('appResized', newValue)
     },
+    currentSizeClass () {
+      return this.sizeClass
+    },
     handleScroll () {
       this.$emit('appScrolled', window.scrollY)
     },

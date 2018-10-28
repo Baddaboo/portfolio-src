@@ -1,10 +1,10 @@
 <template>
   <div class="doublesection-container">
-    <div class="left" :style="[isMobile ? 'full-width' : leftStyle]">
+    <div class="left" :style="isMobile ? fullStyle : leftStyle">
       <slot name="left" />
     </div>
     <spacer horizontal="30px" />
-    <div class="right" :style="[isMobile ? 'full-width' : rightStyle]">
+    <div class="right" :style="isMobile ? fullStyle : rightStyle">
       <slot name="right" />
     </div>
   </div>
@@ -19,15 +19,18 @@ export default {
   components: {
     Spacer
   },
-  data() {
+  data () {
     return {
-      leftStyle: {
-        width: this.proportion + '%'
-      },
-      rightStyle: {
-        width: 100 - this.proportion + '%'
-      },
+      fullStyle: { width: '100%' },
       isMobile: false
+    }
+  },
+  computed: {
+    leftStyle: function () {
+      return { width: this.proportion + '%' }
+    },
+    rightStyle: function () {
+      return { width: 100 - this.proportion + '%' }
     }
   },
   props: {
@@ -36,20 +39,26 @@ export default {
       default: 50
     }
   },
-  mounted() {
+  methods: {
+    handleResize (sizeClass) {
+      this.isMobile = sizeClass === 'mobile'
+    }
+  },
+  mounted () {
     var self = this
 
     global.$on('appResized', sizeClass => {
-      self.isMobile = sizeClass === "mobile"
+      self.handleResize(sizeClass)
+    })
+
+    this.$nextTick(() => {
+      self.handleResize(global.currentSizeClass())
     })
   }
 }
 </script>
 
 <style scoped>
-.full-width {
-  width: 100%;
-}
 .doublesection-container {
   display: flex;
   flex-direction: row;
