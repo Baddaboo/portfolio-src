@@ -41,12 +41,12 @@ export default {
         { color: 'rgba(255, 0, 255, 0.5)',
           bgSrc: require('../assets/easylayout-bg.png'),
           fgSrc: require('../assets/easylayout-fg.png'),
-          fgText: 'EasyLayout (Coming Soon)',
+          fgText: 'EasyLayout',
           link: '/easylayout'
         },
         { color: '#3b5998',
           fgSrc: require('../assets/facebook-fg.png'),
-          fgText: 'Facebook App Exploration (Coming Soon)',
+          fgText: 'Facebook App Exploration (Coming Soon)'
           // link: '/facebook'
         }
       ],
@@ -54,26 +54,26 @@ export default {
         { color: '#004486',
           bgSrc: require('../assets/workday-bg.png'),
           fgSrc: require('../assets/workday-logo.png'),
-          fgText: 'UX Mobile (Coming Soon)',
+          fgText: 'UX Mobile (Coming Soon)'
           // link: '/workday'
         },
         { color: '#15b7ff',
           bgSrc: require('../assets/tiger-bg.png'),
           fgSrc: require('../assets/tiger-logo.png'),
-          fgText: 'Tiger App (Coming Soon)',
+          fgText: 'Tiger App (Coming Soon)'
           // link: '/tigerapp'
         },
         { color: '#ffca11',
           bgSrc: require('../assets/wsos-bg.png'),
           fgSrc: require('../assets/wsos-logo.png'),
           fgText: 'Skills that Shine (Coming Soon)',
-          fgTextColor: '#222',
+          fgTextColor: '#222'
           // link: '/wsos'
         },
         { color: '#e73d30',
           bgSrc: require('../assets/yelp-bg.jpg'),
           fgSrc: require('../assets/yelp-logo.png'),
-          fgText: 'ReaderX Mobile (Coming Soon)',
+          fgText: 'ReaderX Mobile (Coming Soon)'
           // link: '/yelp'
         }
       ],
@@ -86,18 +86,18 @@ export default {
         { color: '#ddd',
           fgSrc: require('../assets/amazon-fg.png'),
           fgText: 'Amazon Global Security (Coming Soon)',
-          fgTextColor: '#222',
+          fgTextColor: '#222'
           // link: '/amazon'
         },
         { color: 'rgba(255, 0, 0, 0.5)',
           fgSrc: require('../assets/susan-fg.png'),
-          fgText: 'Susan (Coming Soon)',
+          fgText: 'Susan (Coming Soon)'
           // link: '/susan'
         },
         { color: 'rgba(0, 0, 255, 0.5)',
           bgSrc: require('../assets/hermes-bg.png'),
           fgSrc: require('../assets/hermes-fg.png'),
-          fgText: 'Project Hermes (Coming Soon)',
+          fgText: 'Project Hermes (Coming Soon)'
           // link: '/hermes'
         }
       ]

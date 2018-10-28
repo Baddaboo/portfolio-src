@@ -8,12 +8,12 @@
 export default {
   name: 'ColorContainer',
   props: {
-    color: String,
+    color: String
   },
   data () {
     return {
       containerStyle: {
-        backgroundColor: this.color,
+        backgroundColor: this.color
       }
     }
   }
