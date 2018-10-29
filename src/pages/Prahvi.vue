@@ -84,6 +84,7 @@
               these prototypes around campus to see how those around us would
               react.
             </p>
+            <spacer vertical="30px" />
           </div>
         </page-double-section>
         <page-double-section :proportion="60">
@@ -126,7 +127,7 @@
       </page-paragraph>
       <spacer vertical="30px" />
       <page-paragraph>
-        <h3>Computer Vision</h3>
+        <page-sub-sub-header title="Computer Vision" />
         In short, the computer vision routine used <strong>OpenCV</strong> to
         recognize the bounding corners of a document, poster, or other medium.
         After ranking the image for blurriness, familiarity, etc., the image is
@@ -134,7 +135,7 @@
       </page-paragraph>
       <page-image :src="prahviOcr" type="full" />
       <page-paragraph>
-        <h3>Text Processing</h3>
+        <page-sub-sub-header title="Text Processing" />
         Depending on the mode the system is in, we apply different text
         processing techniques. We used a natural language processing model that
         was trained using a corpus of articles gathered from the <strong>New York
@@ -151,7 +152,7 @@
         </page-double-section>
       </page-paragraph>
       <page-paragraph>
-        <h3>Hardware & Voice User Interfaces</h3>
+        <page-sub-sub-header title="Hardware & Voice User Interfaces" />
         Tying this all together was the hardware and voice user interfaces.
         Having settled on the glasses-mounted form-factor, the enclosure of the
         device was an iteration of the ideation prototype with a mount for the

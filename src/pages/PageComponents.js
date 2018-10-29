@@ -12,6 +12,7 @@ import PageList from '../components/PageList.vue'
 import PageParagraph from '../components/PageParagraph.vue'
 import PageSection from '../components/PageSection.vue'
 import PageSubHeader from '../components/PageSubHeader.vue'
+import PageSubSubHeader from '../components/PageSubSubHeader.vue'
 import Spacer from '../components/Spacer.vue'
 import TeamItem from '../components/TeamItem.vue'
 
@@ -30,6 +31,7 @@ export const components = {
   PageParagraph,
   PageSection,
   PageSubHeader,
+  PageSubSubHeader,
   Spacer,
   TeamItem
 }
