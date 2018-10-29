@@ -16,7 +16,8 @@
         </p>
         <page-glance slot="right"
           tools="iOS, macOS, AutoLayout, UIKit, Swift & Objective-C"
-          color="#ffc4dc" :additional="[
+          color="#ffc4dc"
+          :additional="[
             { title: 'Type', content: 'Design Layout Framework' },
             { title: 'At a Glance', content: 'Cut down the size and complexity of Tiger source files while reducing crashes and layout mistakes.' }
           ]"
@@ -53,14 +54,16 @@
               are needed per view. Add this to the boilerplate code a developer
               would also have to add to disable the autoresizing mask
               constraints and activate the constraints for UIKit to recognize
-              them. Then to animate, we'd have to manage which layout is
+              them. Then to animate, we'd have to track down which layout is
               active to disable it while the system redraws...
             </p>
           </div>
           <page-image slot="right" :src="easyOldCodeAll" />
         </page-double-section>
         <spacer vertical="30px" />
-        <h3>This was not a great experience, even for seasoned developers.</h3>
+        <color-container color="#ffc4dc">
+          <h3>This was not a great experience, even for seasoned developers.</h3>
+        </color-container>
       </page-paragraph>
     </page-section>
     <page-section>
@@ -73,7 +76,7 @@
         <page-list :items="[
           'It\'s declarative which means the developer calls directly upon the view they are affecting.',
           'It\'s type-safe, so that incompatible constraints cannot be paired together and crash the app at runtime.',
-          'Best of all, animating a constraint change is just as simple as the syntax.'
+          'Best of all, animating a constraint change is just as simple as creating one.'
         ]">
         </page-list>
         <page-double-section>
@@ -102,8 +105,8 @@
         app (that I know of) that will ship with this framework. I continue to
         develop on it, adding features and ironing out the bugs. My long-term
         goal is to create a system of high-level layouts and techniques so that
-        <strong>defining a dynamic layout will be as simple as putting
-        a pen on paper. </strong>
+        <strong>defining a dynamic layout will be as simple as putting pen to
+        paper. </strong>
       </page-paragraph>
     </page-section>
   </page-container>
@@ -132,7 +135,8 @@ export default {
   }
 }
 </script>
-
 <style scoped>
-
+h3 {
+  margin: 0;
+}
 </style>

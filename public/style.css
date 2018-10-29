@@ -46,6 +46,11 @@ h2 {
     font-family: "Avenir";
 }
 
+h3 {
+  margin: 0;
+  text-align: center;
+}
+
 p {
     display: block;
     font-size: 1em;

@@ -23,7 +23,7 @@
           role="Hardware design + protocols, product prototyping, voice + visual
           user interface, and user testing"
           process="Interviews, empathy exercises, personas, competitive analysis,
-          prototyping, heuristics, and user testing"
+          prototyping, heuristics, and usability testing"
           tools="Raspberry Pi, iOS, Python, C++, PeerTalk, usbmuxd, TensorFlow,
           Tesseract, OpenCV" />
       </page-double-section>

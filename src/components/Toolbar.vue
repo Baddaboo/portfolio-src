@@ -140,7 +140,7 @@ h3 {
   max-width: 1020px;
   margin: auto;
 
-  transition: box-shadow 0.5s;
+  transition: all 0.5s;
 }
 
 .toolbar-internal-shadow {
@@ -159,7 +159,7 @@ h3 {
 
 @media screen and (min-width: 1025px) {
   .toolbar-internal-shadow {
-    box-shadow: 0px 5px 5px -5px rgba(0,0,0,0.4);
+    box-shadow: 0px 6px 5px -6px rgba(0,0,0,0.4);
   }
 }
 
