@@ -60,8 +60,8 @@ export default {
         { color: '#15b7ff',
           bgSrc: require('../assets/tiger-bg.png'),
           fgSrc: require('../assets/tiger-logo.png'),
-          fgText: 'Tiger App (Coming Soon)'
-          // link: '/tigerapp'
+          fgText: 'Tiger App',
+          link: '/tigerapp'
         },
         { color: '#ffca11',
           bgSrc: require('../assets/wsos-bg.png'),
@@ -81,12 +81,11 @@ export default {
         { color: '#000',
           bgSrc: require('../assets/google-bg.png'),
           fgSrc: require('../assets/google-fg.png'),
-          fgText: 'MS Thesis (Coming Soon)'
+          fgText: 'MS Capstone (In Progress)'
         },
-        { color: '#ddd',
+        { color: '#2f383d',
           fgSrc: require('../assets/amazon-fg.png'),
-          fgText: 'Amazon Global Security (Coming Soon)',
-          fgTextColor: '#222'
+          fgText: 'Amazon Global Security (Coming Soon)'
           // link: '/amazon'
         },
         { color: 'rgba(255, 0, 0, 0.5)',

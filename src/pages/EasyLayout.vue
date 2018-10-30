@@ -24,7 +24,7 @@
           :link="{
             url: 'https://github.com/Baddaboo/EasyLayout',
             text: 'Visit on GitHub'
-          }"></page-glance>
+          }" />
       </page-double-section>
     </page-section>
     <page-section>
