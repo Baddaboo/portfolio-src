@@ -140,7 +140,7 @@ h3 {
   max-width: 1020px;
   margin: auto;
 
-  transition: all 0.5s;
+  transition: box-shadow 0.5s;
 }
 
 .toolbar-internal-shadow {

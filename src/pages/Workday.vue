@@ -16,6 +16,7 @@
             'On the engineering side, we introduced a modern, testable animation architecture to the Workday app.',
             'On the design side, we helped to foster a common dialogue around UI animations for designers and engineers to collaborate better.'
           ]" />
+          <spacer vertical="30px" />
         </p>
         <page-glance slot="right"
           color="#bae1ff"
@@ -23,11 +24,13 @@
           tools="Android (Java & Kotlin), Dagger2, RxJava, Mockito, ButterKnife, Vizzy"
           :additional="[
             { title: 'Team', content: 'UX Mobile (UI Platform)' },
-            { title: 'At a Glance', content: 'Animations, Frameworks & Architecture, Design Discussions, Testing' }
+            { title: 'At a Glance', content: 'Animations, Frameworks & Architecture, Design Discussions, Automated Testing' }
           ]" />
       </page-double-section>
-      <spacer vertical="30px" />
+    </page-section>
+    <page-section>
       <page-paragraph>
+        <spacer vertical="30px" />
         <strong>
           Unfortunately, this feature is not yet available to general users so I
           can only speak to the project at a high level.
@@ -116,8 +119,8 @@
         completed. From here, we can identify when an animation has failed and
         in which context to quickly debug it. Its screenshotting feature also
         holds us accountable for visual changes made to the interface over time.
-        Overall, Vizzy was <i>perfect</i> for use-cases such as this one and
-        this was the first time it was used for evaluating animations.
+        Overall, although it may not have been designed with animations in mind,
+        Vizzy proved to be <i>great</i> for this use case.
       </page-paragraph>
     </page-section>
     <page-section>
@@ -143,7 +146,7 @@ import { components } from './PageComponents.js'
 export default {
   name: 'Workday',
   components: components,
-  data() {
+  data () {
     return {
       wdayCover: require('../assets/wday-cover.png'),
       wdayGeometric: require('../assets/wday-geometric.png'),
