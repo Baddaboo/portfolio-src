@@ -54,8 +54,8 @@ export default {
         { color: '#004486',
           bgSrc: require('../assets/workday-bg.png'),
           fgSrc: require('../assets/workday-logo.png'),
-          fgText: 'UX Mobile (Coming Soon)'
-          // link: '/workday'
+          fgText: 'UX Mobile',
+          link: '/workday'
         },
         { color: '#15b7ff',
           bgSrc: require('../assets/tiger-bg.png'),
