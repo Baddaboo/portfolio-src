@@ -111,13 +111,13 @@
         <page-image :src="wdayVizzy" type="half"/>
         Luckily at Workday, we use <a href="https://github.com/Workday/vizzy"
         class="link">Vizzy</a> to create visual automation tests. Since
-        animations have a start state and an end state, we can visually
-        evaluate the whole interface before the animation has been commited and
-        after it has completed. From here, we can identify when an animation
-        has failed and in which context to quickly debug it. Its screenshotting
-        feature also holds us accountable for visual changes made to the
-        interface over time. Overall, Vizzy was <i>perfect</i> for use-cases
-        such as this one.
+        animations have a start state and an end state, we visually evaluate the
+        whole interface before the animation has been commited and after it has
+        completed. From here, we can identify when an animation has failed and
+        in which context to quickly debug it. Its screenshotting feature also
+        holds us accountable for visual changes made to the interface over time.
+        Overall, Vizzy was <i>perfect</i> for use-cases such as this one and
+        this was the first time it was used for evaluating animations.
       </page-paragraph>
     </page-section>
     <page-section>
