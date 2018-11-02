@@ -13,7 +13,10 @@
             is a first-of-its-kind organization to help students from low and
             middle-income households succeed in STEM fields, in college and
             beyond. Our team worked with WSOS to develop a new platform that
-            connects industry mentors with students.
+            connects industry mentors with students. This platform is currently
+            live, launched as <a href="https://wsos-base.firebaseapp.com/#/" class="link">
+               Skills that Shine
+            </a> for students and mentors in the state of Washington.
           </p>
           <spacer vertical="20px" />
           <h2>Team</h2>
@@ -102,7 +105,7 @@
           <div slot="right">
             <strong>Form Digitalization</strong>
             <spacer vertical="10px" />
-            Our first iteration involved taking the traditional mentor signup
+            Our first version involved taking the traditional mentor signup
             forms and building an interface around them that would allow users
             to self-enter data into the system and build a profile. In this
             step, we were able to eliminate many fields that were not necessary
@@ -193,13 +196,16 @@
         toolchain using ESLint and continuous deployment. This toolchain builds
         on typical good software engineering practices and <strong>allows us to
         build and deploy a new version of the WSOS service on-the-fly</strong>
-        without disrupting the user experience. If the service breaks, the build
-        system instantly rolls it back.
+        without disrupting the user experience. Each update runs through a suite
+        of tests, and if the service breaks, the system instantly rolls back the
+        update.
         <spacer vertical="20px" />
         This became especially important as we tested the layout and interface
         patterns for users. We could gather feedback both from surveys and from
         analytics to identify where users were getting stuck and deploy fresh
-        variations without ever taking the service down for maintenance.
+        variations without ever taking the service down for maintenance. The
+        toolchain enabled us to use <strong>data-driven insights</strong> to
+        further refine the experience.
       </page-paragraph>
       <page-image :src="wsosDeploy" />
     </page-section>
@@ -208,12 +214,12 @@
         <page-sub-header title="Launch" />
         The service is currently live, and has launched under the name of
         Washington State Opportunity Scholarship
-        <a href="https://wsos-base.firebaseapp.com/#/">
+        <a href="https://wsos-base.firebaseapp.com/#/" class="link">
            Skills that Shine
         </a>
         Program! It has been used to match hundreds of students and mentors and
         facilitate communication from the WSOS team. We continue to incorporate
-        feedback, while onboarding new users for the Fall 2018 season!
+        feedback, while onboarding new users for the Fall 2018 season.
       </page-paragraph>
     </page-section>
   </page-container>
