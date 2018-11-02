@@ -212,7 +212,7 @@
     <page-section>
       <page-paragraph>
         <page-sub-header title="Iteration (Round 2)" />
-        <page-double-section>
+        <page-double-section :proportion="30">
           <page-image slot="left" :src="wsosCodes" :shadow="true" />
           <p slot="right">
             The most valuable insight we got at this point was that manually
