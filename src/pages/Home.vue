@@ -32,13 +32,13 @@ export default {
           fgText: 'ClassicKit',
           link: '/classickit'
         },
-        { color: 'rgba(255, 0, 0, 0.5)',
+        { color: '#ff9400',
           bgSrc: require('../assets/prahvi-bg.png'),
           fgSrc: require('../assets/prahvi-logo.png'),
           fgText: 'PRAHVI (Wearable)',
           link: '/prahvi'
         },
-        { color: 'rgba(255, 0, 255, 0.5)',
+        { color: '#ef5fa7',
           bgSrc: require('../assets/easylayout-bg.png'),
           fgSrc: require('../assets/easylayout-fg.png'),
           fgText: 'EasyLayout',
@@ -66,9 +66,9 @@ export default {
         { color: '#ffca11',
           bgSrc: require('../assets/wsos-bg.png'),
           fgSrc: require('../assets/wsos-logo.png'),
-          fgText: 'Skills that Shine (Coming Soon)',
-          fgTextColor: '#222'
-          // link: '/wsos'
+          fgText: 'Skills that Shine',
+          fgTextColor: '#222',
+          link: '/wsos'
         },
         { color: '#e73d30',
           bgSrc: require('../assets/yelp-bg.jpg'),
