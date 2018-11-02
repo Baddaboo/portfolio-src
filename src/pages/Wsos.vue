@@ -142,7 +142,7 @@
     </page-section>
     <page-section>
       <page-paragraph>
-        <page-sub-header title="Iteration" />
+        <page-sub-header title="Iteration (Round 1)" />
         Once we created the first-pass mockups, we conducted studies with past
         WSOS mentors and mentees to gain feedback. Specifically, we wanted to
         test the new interaction that would allow students to select their
@@ -211,7 +211,30 @@
     </page-section>
     <page-section>
       <page-paragraph>
+        <page-sub-header title="Iteration (Round 2)" />
+        <page-double-section>
+          <page-image slot="left" :src="wsosCodes" :shadow="true" />
+          <p slot="right">
+            The most valuable insight we got at this point was that manually
+            entering email addresses to onboard mentors during a live recruiting
+            event <strong>proved to be very cumbersome when used in real life.
+            </strong> We were able to quickly develop a paste tool for mentor
+            coordinators to take down email addresses using an Excel sheet or
+            in a notes app on their smartphone and quickly send access codes to
+            prospective mentors.
+          </p>
+        </page-double-section>
+      </page-paragraph>
+    </page-section>
+    <page-section>
+      <page-paragraph>
         <page-sub-header title="Launch" />
+        After iterating on the system and incorporating feedback, we reached a
+        point where we could graduate the system to launch. We worked with WSOS
+        to <strong>coordinate a staged rollout</strong>. First we released the
+        administrator interface to the mentor coordination team, then onboarding
+        mentors, before finally opening the service to students.
+        <spacer vertical="20px" />
         The service is currently live, and has launched under the name of
         Washington State Opportunity Scholarship
         <a href="https://wsos-base.firebaseapp.com/#/" class="link">
@@ -245,7 +268,8 @@ export default {
       wsosAnimals: require('../assets/wsos-animals.png'),
       wsosProto: require('../assets/wsos-proto.png'),
       wsosProtoAdmin: require('../assets/wsos-admin-proto.png'),
-      wsosDeploy: require('../assets/wsos-deployment.png')
+      wsosDeploy: require('../assets/wsos-deployment.png'),
+      wsosCodes: require('../assets/wsos-codes.png')
     }
   },
   mounted () {
