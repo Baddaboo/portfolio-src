@@ -4,7 +4,7 @@
       <h1 v-show="this.animationState == 0">Hi, I'm Blake</h1>
     </transition>
     <transition name="slide">
-      <h1 v-show="this.animationState == 1">I build experiences</h1>
+      <h1 v-show="this.animationState == 1">I'm a designer + engineer</h1>
     </transition>
     <transition name="slide">
       <HeroText ref="heroText" v-show="this.animationState == 2" :texts="additionalTexts" />
@@ -54,10 +54,14 @@ h1 {
 }
 .slide-enter {
   transform: translateY(100%);
+  /* transform: scale(1.5, 1.5); */
+  /* transform: scale(0.5, 0.5); */
   opacity: 0;
 }
 .slide-leave-to {
   transform: translateY(-100%);
+  /* transform: scale(0.5, 0.5); */
+  /* transform: scale(1.5, 1.5);  */
   opacity: 0;
 }
 </style>

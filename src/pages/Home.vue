@@ -24,7 +24,18 @@ export default {
     return {
       animationState: -1,
       showCards: false,
-      heroTexts: ['Motivate', 'Simplify', 'Inspire', 'Make Things'],
+      heroTexts: [
+        'motivate',
+        'delight',
+        'inspire',
+        'simplify',
+        'make things',
+        'move',
+        'teach',
+        'humanize',
+        'dare',
+        'break things'
+      ],
       playCards: [
         { color: '#396ba0',
           bgSrc: require('../assets/ck-bg.png'),
@@ -71,10 +82,10 @@ export default {
           link: '/wsos'
         },
         { color: '#e73d30',
-          bgSrc: require('../assets/yelp-bg.jpg'),
+          bgSrc: require('../assets/yelp-bg.png'),
           fgSrc: require('../assets/yelp-logo.png'),
-          fgText: 'ReaderX Mobile (Coming Soon)'
-          // link: '/yelp'
+          fgText: 'ReaderX Mobile',
+          link: '/yelp'
         }
       ],
       learnCards: [

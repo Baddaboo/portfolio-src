@@ -8,16 +8,16 @@
           At Tiger, my role began as a front-end developer, but merged with
           design as I took on more projects within the team. At Tiger, we're
           hoping to change the way people connect with their friends and
-          co-workers. I was fortunate enough to take the lead on a massive
-          product reboot informed by a range of methods, including focus groups,
-          participatory design, and usability testing.
+          co-workers. I was fortunate enough to <strong>take the lead on a
+          massive product reboot</strong> informed by a range of methods,
+          including focus groups, participatory design, and usability testing.
           <spacer vertical="30px" />
         </p>
         <page-glance
           slot="right"
           color="#91ddff"
           role="Principal Front-end Engineer & Designer"
-          tools="iOS, Swift & Objective-C, EasyLayout, Parse, TestFlight"
+          tools="iOS (Swift & Objective-C), EasyLayout, Parse, TestFlight"
           process="Interviews, focus group, participatory design, personas, competitive analysis, prototyping, heuristics, usability testing, A/B testing"
           :link="{
             url: 'http://gettiger.com/',
@@ -68,6 +68,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>

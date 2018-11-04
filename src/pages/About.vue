@@ -12,7 +12,9 @@
       </div>
     </div>
     <page-section>
-        <page-header title="Hello World" align="left" />
+        <page-header
+          title="Hello World"
+          align="left" />
         <page-paragraph>
           I live at the intersection of design and engineering. My
           work has involved bringing the two minds together at
@@ -31,7 +33,8 @@
       <page-section>
         <page-header title="What I believe in" />
         <page-paragraph>
-          <page-sub-header title="👨🏻‍💻☕️ Solving design problems with deep engineering" align="left" />
+          <page-sub-header
+            title="👨🏻‍💻☕️ Solving design problems with deep engineering" align="left" />
           ...and solving engineering problems with great
           design. The best solutions often come from
           approaching a problem at multiple angles. I like
@@ -41,7 +44,9 @@
       </page-section>
       <page-section>
         <page-paragraph>
-          <page-sub-header title="🔮🙅🏻‍ ‍Replace assumptions with prototypes" align="left" />
+          <page-sub-header
+            title="🔮🙅🏻‍ ‍Replace assumptions with prototypes"
+            align="left" />
           I love dealing with the <i>unknown</i>, whether
           it's a new technology or problem space. However,
           as much I like to think I know how a product or
@@ -54,7 +59,8 @@
       </page-section>
       <page-section>
         <page-paragraph>
-          <page-sub-header title="📝✨ The best code is the code you don't have to write" align="left" />
+          <page-sub-header
+            title="📝✨ The best code is the code you don't have to write" align="left" />
           As technologists, we're often drawn to
           technological solutions. I believe in taking a
           step back and re-evaluating the solution at
