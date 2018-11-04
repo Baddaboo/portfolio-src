@@ -87,8 +87,8 @@
             <spacer vertical="10px" />
             Having a small IT team means that most book-keeping is still done
             manually by staff. However, new technologies also pose security and
-            privacy risks for users. In the past, WSOS has also been subject to
-            cyber attacks.
+            privacy risks for users. In the past, WSOS has been subject to cyber
+            attacks.
           </div>
         </page-double-section>
       </page-paragraph>

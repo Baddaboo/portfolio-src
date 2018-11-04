@@ -62,8 +62,8 @@
         <page-sub-sub-header title="Property Animations" />
         Property animations define specific attributes of a view relative to
         other views or the whole screen. Simple examples include color and
-        opacity, but some design systems (such as <a href="https://material.io/design/" class="link">Material Design</a>
-        ) also define properties such as shadows, elevation, and weight. These
+        opacity, but some design systems (such as <a href="https://material.io/design/" class="link">Material Design</a>)
+        also define properties such as shadows, elevation, and weight. These
         attributes may not be visually tied to the view itself, but provide
         a basis for how views interact with each other.
         <br />

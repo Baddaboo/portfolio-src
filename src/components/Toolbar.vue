@@ -192,6 +192,7 @@ h3 {
 
 .textSlide-enter, .textSlide-leave-to {
   transform: translateX(-100%);
+  opacity: 0;
 }
 
 .social-menu-enter-active, .social-menu-leave-active {
