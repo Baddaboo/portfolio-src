@@ -128,8 +128,7 @@
         While at Yelp, I made so many friends along the way and we stuck with
         each other through thick and thin. Although we've all gone in different
         directions, I can honestly say I would not be where I am today without
-        them. (We're also <i>really good</i> at taking <i>really bad</i>
-        pictures)
+        them. (We're also <i>really good</i> at taking <i>bad</i> pictures)
         <br />
         <page-image :src="yelpDab" />
       </page-paragraph>
