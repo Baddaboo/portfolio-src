@@ -62,7 +62,7 @@
     <page-section>
       <page-sub-header title="Product" />
       <page-paragraph>
-        <page-double-section>
+        <page-double-section :proportion="30">
           <page-image slot="left" :src="yelpDemo" :shadow="true" />
           <div slot="right">
             <page-sub-sub-header title="Bookmark Collections" />
@@ -73,7 +73,7 @@
             these breadcrumbs.</strong>
           </div>
         </page-double-section>
-        <page-double-section>
+        <page-double-section :proportion="30">
           <page-image slot="left" :src="yelpSharing" :shadow="true" />
           <div slot="right">
             <page-sub-sub-header title="Shared Collections" />
@@ -141,7 +141,7 @@ import { global } from '../main.js'
 import { components } from './PageComponents.js'
 
 export default {
-  name: 'Tiger',
+  name: 'Yelp',
   components: components,
   data () {
     return {

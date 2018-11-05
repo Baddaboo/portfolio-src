@@ -2,11 +2,17 @@
   <div class="team-container" >
     <li v-for="item in items" :key="item.id">
       <strong>
-        <a v-if="item.url != null" :href="item.url" class="link">
+        <a v-if="item.url != null && item.role != null" :href="item.url" class="link">
+          {{item.name}}:
+        </a>
+        <a v-else-if="item.url != null && item.role == null" :href="item.url" class="link">
+          {{item.name}}
+        </a>
+        <a v-else-if="item.url == null && item.role != null">
           {{item.name}}:
         </a>
         <a v-else>
-          {{item.name}}:
+          {{item.name}}
         </a>
       </strong> {{item.role}}
     </li>
