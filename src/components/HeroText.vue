@@ -43,7 +43,7 @@ export default {
 
       self.state = !self.state
 
-      this.$nextTick(()=>{
+      this.$nextTick(() => {
         var currentView = self.currentView()
         if (currentView != null) {
           var style = window.getComputedStyle(currentView)
