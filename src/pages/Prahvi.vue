@@ -16,7 +16,7 @@
           <spacer vertical="20px" />
           <h2>Team</h2>
           <spacer vertical="10px" />
-          <TeamItem :items="teamItems" />
+          <team-item :items="teamItems" />
           <spacer vertical="30px" />
         </div>
         <page-glance slot="right" color="#ffd479"
@@ -271,20 +271,11 @@ export default {
       prahviAlicia: require('../assets/prahvi-alicia.png'),
       prahviParts: require('../assets/prahvi-parts.png'),
       teamItems: [
-        {
-          name: 'Yang Li',
-          role: 'Computer Vision',
-          url: 'https://www.linkedin.com/in/yli94/'
-        },
-        {
-          name: 'Abe Millan',
-          role: 'Text Processing',
-          url: 'https://www.linkedin.com/in/abe-millan-25395334/'
-        },
-        {
-          name: 'Blake Tsuzaki',
-          role: 'Hardware & UI'
-        }
+        { name: 'Yang Li', role: 'Computer Vision',
+          url: 'https://www.linkedin.com/in/yli94/' },
+        { name: 'Abe Millan', role: 'Text Processing',
+          url: 'https://www.linkedin.com/in/abe-millan-25395334/' },
+        { name: 'Blake Tsuzaki', role: 'Hardware & UI' }
       ]
     }
   },

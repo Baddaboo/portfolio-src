@@ -56,9 +56,10 @@ export default {
           link: '/easylayout'
         },
         { color: '#3b5998',
+          bgSrc: require('../assets/fb-bg.png'),
           fgSrc: require('../assets/facebook-fg.png'),
-          fgText: 'Facebook App Exploration (Coming Soon)'
-          // link: '/facebook'
+          fgText: 'Facebook App Tinkering',
+          link: '/facebook'
         }
       ],
       workCards: [

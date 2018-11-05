@@ -19,10 +19,7 @@
           role="Principal Front-end Engineer & Designer"
           tools="iOS (Swift & Objective-C), EasyLayout, Parse, TestFlight"
           process="Interviews, focus group, participatory design, personas, competitive analysis, prototyping, heuristics, usability testing, A/B testing"
-          :link="{
-            url: 'http://gettiger.com/',
-            text: 'Early Release Info'
-          }" />
+          :link="{ url: 'http://gettiger.com/', text: 'Early Release Info' }" />
       </page-double-section>
     </page-section>
     <page-section>
@@ -34,16 +31,24 @@
         graduate a number of projects to Open Source, including:
         <ul>
           <li>
-            <a href="https://github.com/Baddaboo/BTCardView" class="link">BTCardView</a>
+            <a href="https://github.com/Baddaboo/BTCardView" class="link">
+              BTCardView
+            </a>
           </li>
           <li>
-            <a href="https://github.com/Baddaboo/BTMaximizableView" class="link">BTMaximizableView</a>
+            <a href="https://github.com/Baddaboo/BTMaximizableView" class="link">
+              BTMaximizableView
+            </a>
           </li>
           <li>
-            <a href="https://github.com/Baddaboo/BTStatusBar" class="link">BTStatusBar</a>
+            <a href="https://github.com/Baddaboo/BTStatusBar" class="link">
+              BTStatusBar
+            </a>
           </li>
           <li>
-            <a href="https://github.com/Baddaboo/EasyLayout" class="link">EasyLayout</a>
+            <a href="https://github.com/Baddaboo/EasyLayout" class="link">
+              EasyLayout
+            </a>
           </li>
         </ul>
       </page-paragraph>

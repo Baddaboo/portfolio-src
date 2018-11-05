@@ -1,14 +1,14 @@
 <template>
   <div class="hero-text-base">
     <h2 class="primary-text">I make things that</h2>
-    <div class="secondary-text-container">
+    <div class="secondary-text-container" :style="{width:calculatedWidth}">
       <transition name="fade" mode="out-in">
-        <div class="secondary-text" v-show="state">
+        <div ref="displayText1" class="secondary-text" v-show="state">
           <h2>{{textPrimary}}</h2>
         </div>
       </transition>
       <transition name="fade" mode="out-in">
-        <div class="secondary-text" v-show="!state">
+        <div ref="displayText2" class="secondary-text" v-show="!state">
           <h2>{{textSecondary}}</h2>
         </div>
       </transition>
@@ -25,7 +25,8 @@ export default {
       textPrimary: '',
       textSecondary: '',
       currentIndex: 0,
-      animationInterval: null
+      animationInterval: null,
+      calculatedWidth: '120px'
     }
   },
   props: {
@@ -41,6 +42,15 @@ export default {
       if (self.currentIndex >= self.texts.length - 1) { self.currentIndex = 0 } else { self.currentIndex += 1 }
 
       self.state = !self.state
+
+      this.$nextTick(()=>{
+        var currentView = self.currentView()
+        if (currentView != null) {
+          var style = window.getComputedStyle(currentView)
+          var calculatedWidth = style.getPropertyValue('width')
+          self.calculatedWidth = calculatedWidth
+        }
+      })
     },
     startAnimation () {
       var self = this
@@ -53,6 +63,10 @@ export default {
       if (this.animationInterval != null) {
         clearInterval(this.animationInterval)
       }
+    },
+    currentView () {
+      var view = this.state ? this.$refs.displayText1 : this.$refs.displayText2
+      return view
     }
   },
   mounted () {
@@ -77,11 +91,12 @@ export default {
 }
 
 .secondary-text {
+  display: block;
   position: absolute;
-  padding-left: 0.5em;
 }
 .secondary-text-container {
-  width: 120px;
+  margin-left: 0.5em;
+  transition: width 0.5s;
 }
 
 .fade-enter-active, .fade-leave-active {
