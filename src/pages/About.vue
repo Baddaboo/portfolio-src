@@ -109,6 +109,7 @@ export default {
 .resume-line {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .go-icon {
   padding-top: 2px;
