@@ -1,6 +1,6 @@
 <template>
   <page-container>
-    <page-image type="half" :src="amazonCover" />
+    <page-image type="half" :src="amazonCover" :responsive="false" />
     <page-header title="Global Security Academy" />
     <page-section>
       <page-double-section>
@@ -117,7 +117,7 @@ import { components } from './PageComponents.js'
 export default {
   name: 'Amazon',
   components: components,
-  data() {
+  data () {
     return {
       amazonCover: require('../assets/amazon-cover.png'),
       amazonTeam: require('../assets/amazon-team.jpg'),

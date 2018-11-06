@@ -43,14 +43,15 @@ export default {
   components: {
     Spacer
   },
-  mounted() {
+  mounted () {
     var vrView = new VRView.Player('#vrview', {
       image: './img/mission-peak.jpg',
       is_stereo: false,
       default_yaw: 200,
       width: '100%',
-      height: '100%'
-    });
+      height: '100%',
+      is_yaw_only: false
+    })
   }
 }
 </script>
@@ -110,7 +111,7 @@ h1 {
 
 @media screen and (min-width: 601px) {
   .vroverlay {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.75);
     position: absolute;
     right: 40px;
     bottom: 40px;
