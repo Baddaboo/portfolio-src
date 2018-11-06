@@ -12,18 +12,23 @@
           <spacer vertical="20px" />
           Interested in working with me?
           <spacer vertical="10px" />
-          <router-link to="/about" class="link">
-            Find my resume and more about me
+          <router-link to="/about" class="routelink link">
+            Find my resume + more about me
             <div class="go-icon">
               <font-awesome-icon icon="arrow-alt-circle-right" />
             </div>
           </router-link>
           <spacer vertical="20px" />
-          Tip: You can pan around this photo of
-          <a href="https://en.wikipedia.org/wiki/Mission_Peak"
-            class="link outer-link">
-            Mission Peak
-          </a>
+          <div class="caption-container">
+            Tip: You can pan around this photo
+            <br />
+            of
+            <a href="https://en.wikipedia.org/wiki/Mission_Peak"
+              class="link">
+              Mission Peak
+            </a>
+            and view it in VR
+          </div>
         </div>
       </div>
     </div>
@@ -61,7 +66,10 @@ h1 {
   flex-direction: column;
   align-content: stretch;
 }
-.link {
+.caption-container {
+  display: inline-block;
+}
+.routelink {
   display: flex;
   flex-direction: row;
 }
