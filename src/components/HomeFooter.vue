@@ -18,6 +18,12 @@
               <font-awesome-icon icon="arrow-alt-circle-right" />
             </div>
           </router-link>
+          <spacer vertical="20px" />
+          Tip: You can pan around this photo of
+          <a href="https://en.wikipedia.org/wiki/Mission_Peak"
+            class="link outer-link">
+            Mission Peak
+          </a>
         </div>
       </div>
     </div>
@@ -96,7 +102,7 @@ h1 {
 
 @media screen and (min-width: 601px) {
   .vroverlay {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.5);
     position: absolute;
     right: 40px;
     bottom: 40px;
