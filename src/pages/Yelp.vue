@@ -17,7 +17,7 @@
             href="https://www.reallygoodux.io/blog/yelps-new-bookmark-collections-feature"
             class="link">
             Really Good UX
-          </a> as an example of, well, really good UX! 🎉
+          </a> as, well, really good UX! 🎉
           <spacer vertical="30px" />
         </p>
         <page-glance

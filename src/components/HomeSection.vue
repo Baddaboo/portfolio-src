@@ -65,11 +65,4 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-
-.slide-enter-active {
-  transition: all 1s;
-}
-.slide-enter {
-  transform: translateY(100%);
-}
 </style>

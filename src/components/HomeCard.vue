@@ -55,11 +55,11 @@ export default {
       this.isHovering = false
     },
     updateSizing (sizeClass) {
-      this.isMobile = sizeClass === "mobile"
+      this.isMobile = sizeClass === 'mobile'
     }
   },
   computed: {
-    showHoverAnimation: function() {
+    showHoverAnimation: function () {
       return this.isHovering || (this.isMobile && this.isVisible)
     }
   },
@@ -75,8 +75,11 @@ export default {
       if (container != null) {
         var rect = container.getBoundingClientRect()
         var halfHeight = (window.innerHeight || document.documentElement.clientHeight) / 2
+        var isVisible = rect.bottom > halfHeight && rect.top < halfHeight
 
-        self.isVisible = rect.bottom > halfHeight && rect.top < halfHeight
+        if (isVisible !== self.isVisible) {
+          self.isVisible = isVisible
+        }
       }
     })
 

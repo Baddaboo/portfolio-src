@@ -29,6 +29,20 @@
           emerging technologies that bridge our physical and digital
           worlds.
         </page-paragraph>
+        <spacer vertical="40px" />
+        <page-paragraph>
+          <h2 class="resume-line">
+            You can find my resume
+            <a
+              href="https://drive.google.com/file/d/1mfodhHwinfAbibpWV_ctmpOaNneQbk68/view?usp=sharing"
+              class="link resume-line padding-left">
+              here
+              <div class="go-icon">
+                <font-awesome-icon icon="arrow-alt-circle-right" />
+              </div>
+            </a>
+          </h2>
+        </page-paragraph>
       </page-section>
       <page-section>
         <page-header title="What I believe in" />
@@ -92,6 +106,14 @@ export default {
 </script>
 
 <style scoped>
+.resume-line {
+  display: flex;
+  flex-direction: row;
+}
+.go-icon {
+  padding-top: 2px;
+  padding-left: 5px;
+}
 .header-commands {
     margin-left: 20px;
 }
@@ -101,6 +123,9 @@ export default {
     padding: 5% 5% 20% 5%;
     background-color: white;
     box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+}
+.padding-left {
+  padding-left: 5px;
 }
 .profile-image {
     width: 100%;

@@ -1,10 +1,11 @@
 <template>
   <div id="container" class="base">
-    <HeroIntro id="hero" :class="['hero-text', showCards ? 'hero-text-final' : 'hero-text-initial']" :animation-state="animationState" :additionalTexts="heroTexts"/>
+    <hero-intro id="hero" :class="['hero-text', showCards ? 'hero-text-final' : 'hero-text-initial']" :animation-state="animationState" :additionalTexts="heroTexts"/>
     <div id="home-sections" v-show="showCards">
-      <HomeSection :big-title="'Play'" :cards="playCards" />
-      <HomeSection :big-title="'Work'" :cards="workCards" />
-      <HomeSection :big-title="'Learn'" :cards="learnCards" />
+      <home-section big-title="Play" :cards="playCards" />
+      <home-section big-title="Work" :cards="workCards" />
+      <home-section big-title="School" :cards="learnCards" />
+      <home-footer />
     </div>
   </div>
 </template>
@@ -12,12 +13,14 @@
 <script>
 import HeroIntro from '../components/HeroIntro.vue'
 import HomeSection from '../components/HomeSection.vue'
+import HomeFooter from '../components/HomeFooter.vue'
 import { global } from '../main.js'
 
 export default {
   name: 'Home',
   components: {
     HeroIntro,
+    HomeFooter,
     HomeSection
   },
   data () {
@@ -97,20 +100,20 @@ export default {
         },
         { color: '#2f383d',
           fgSrc: require('../assets/amazon-fg.png'),
-          fgText: 'Amazon Global Security (Coming Soon)'
-          // link: '/amazon'
-        },
-        { color: 'rgba(255, 0, 0, 0.5)',
-          fgSrc: require('../assets/susan-fg.png'),
-          fgText: 'Susan (Coming Soon)'
-          // link: '/susan'
-        },
-        { color: 'rgba(0, 0, 255, 0.5)',
-          bgSrc: require('../assets/hermes-bg.png'),
-          fgSrc: require('../assets/hermes-fg.png'),
-          fgText: 'Project Hermes (Coming Soon)'
-          // link: '/hermes'
+          fgText: 'Amazon Global Security',
+          link: '/amazon'
         }
+        // { color: 'rgba(255, 0, 0, 0.5)',
+        //   fgSrc: require('../assets/susan-fg.png'),
+        //   fgText: 'Susan (Coming Soon)'
+        //   link: '/susan'
+        // },
+        // { color: 'rgba(0, 0, 255, 0.5)',
+        //   bgSrc: require('../assets/hermes-bg.png'),
+        //   fgSrc: require('../assets/hermes-fg.png'),
+        //   fgText: 'Project Hermes (Coming Soon)'
+        //   link: '/hermes'
+        // }
       ]
     }
   },
