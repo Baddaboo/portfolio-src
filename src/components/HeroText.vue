@@ -26,13 +26,27 @@ export default {
       textSecondary: '',
       currentIndex: 0,
       animationInterval: null,
-      calculatedWidth: '120px'
+      calculatedWidth: '100px'
     }
   },
   props: {
     texts: Array
   },
   methods: {
+    setContainerWidth () {
+      var self = this
+
+      self.$nextTick(() => {
+        var currentView = self.currentView()
+        if (currentView != null) {
+          var style = window.getComputedStyle(currentView)
+          var calculatedWidth = style.getPropertyValue('width')
+          self.calculatedWidth = calculatedWidth
+
+          console.log(calculatedWidth)
+        }
+      })
+    },
     nextText () {
       var self = this
       var text = self.texts[self.currentIndex]
@@ -43,14 +57,7 @@ export default {
 
       self.state = !self.state
 
-      this.$nextTick(() => {
-        var currentView = self.currentView()
-        if (currentView != null) {
-          var style = window.getComputedStyle(currentView)
-          var calculatedWidth = style.getPropertyValue('width')
-          self.calculatedWidth = calculatedWidth
-        }
-      })
+      self.setContainerWidth()
     },
     startAnimation () {
       var self = this
