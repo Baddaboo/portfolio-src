@@ -30,15 +30,16 @@
     <page-section>
       <page-sub-header title="The Old Way" />
       <page-paragraph>
-        AutoLayout is a great system for creating responsive layouts in iOS,but
-        implementing it in an app can be frustrating and limited.
-        <spacer vertical="30px" />
-        <page-image :src="easyXcode" />
+        AutoLayout is a great system for creating responsive layouts in iOS,
+        but implementing it in an app can be frustrating and limited.
+      </page-paragraph>
+      <page-image :src="easyXcode" />
+      <page-paragraph>
         One way to use AutoLayout was by using Interface
         Builder (now, more commonly referred to as Storyboards).
         Although Interface Builder made it easy to define layout
-        constraints and their relationships, the layout would be
-        static in that constraints could not be changed on-the-fly
+        constraints and their relationships, <strong>the layout would be
+        static</strong> in that constraints could not be changed on-the-fly
         very easily and could not be animated.
       </page-paragraph>
       <spacer vertical="30px" />

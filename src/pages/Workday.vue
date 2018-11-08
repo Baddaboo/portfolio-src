@@ -132,9 +132,8 @@
         some of the smartest, funnest, people I know. Some of my intern friends
         and I even partnered up for a hackathon and did a kick-ass job as Team
         Mo'Billz:
-        <br />
-        <page-image :src="wdayMobillz" />
       </page-paragraph>
+      <page-image :src="wdayMobillz" />
     </page-section>
   </page-container>
 </template>

@@ -15,8 +15,10 @@
             beyond. Our team worked with WSOS to develop a new platform that
             connects industry mentors with students. This platform is currently
             live, launched as <a href="https://wsos-base.firebaseapp.com/#/" class="link">
-               Skills that Shine
-            </a> for students and mentors in the state of Washington.
+               Skills that Shine,
+            </a>
+            successfully <strong>onboarding 400-500 students and mentors</strong>
+            from all over Washington State.
           </p>
           <spacer vertical="20px" />
           <h2>Team</h2>

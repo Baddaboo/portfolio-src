@@ -129,9 +129,8 @@
         each other through thick and thin. Although we've all gone in different
         directions, I can honestly say I would not be where I am today without
         them. (We're also <i>really good</i> at taking <i>bad</i> pictures)
-        <br />
-        <page-image :src="yelpDab" />
       </page-paragraph>
+      <page-image :src="yelpDab" />
     </page-section>
   </page-container>
 </template>

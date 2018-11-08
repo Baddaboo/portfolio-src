@@ -190,15 +190,15 @@
         <page-double-section>
           <div slot="left">
             <page-image :src="prahviPlay" :shadow="true" />
-            SpeedReader displays the voice interface output and highlights the
-            current word the headset is dictating to indicate where the user is
-            in the passage.
+            SpeedReader displays the voice interface output and
+            <strong>highlights the current word</strong> the headset is
+            dictating to indicate where the user is in the passage.
           </div>
           <div slot="right">
             <page-image :src="prahviScrub" :shadow="true" />
-            At any point, the user can swipe on the gesture area to rewind or
-            fast-forward the readout. Devices that support 3D Touch will even
-            subtly vibrate on each word.
+            At any point, the user can <strong>swipe the gesture area</strong>
+            to rewind or fast-forward the readout. Devices that support 3D Touch
+            will even subtly vibrate on each word.
           </div>
         </page-double-section>
       </page-paragraph>
@@ -258,7 +258,6 @@ export default {
       prahviCover: require('../assets/prahvi-cover.png'),
       prahviDevice: require('../assets/prahvi-headset.png'),
       prahviProcess: require('../assets/prahvi-process.png'),
-      prahviDiagram: require('../assets/prahvi-diagram.png'),
       prahviFindigs: require('../assets/prahvi-findings.png'),
       prahviRough: require('../assets/prahvi-proto-rough.png'),
       prahviBerrycam: require('../assets/prahvi-rpi-screen.png'),

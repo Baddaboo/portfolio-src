@@ -42,8 +42,6 @@ export default {
           var style = window.getComputedStyle(currentView)
           var calculatedWidth = style.getPropertyValue('width')
           self.calculatedWidth = calculatedWidth
-
-          console.log(calculatedWidth)
         }
       })
     },

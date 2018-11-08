@@ -44,6 +44,7 @@ export default {
     Spacer
   },
   mounted () {
+    // eslint-disable-next-line
     var vrView = new VRView.Player('#vrview', {
       image: './img/mission-peak.jpg',
       is_stereo: false,
@@ -100,6 +101,8 @@ h1 {
 
 .vroverlay {
   padding: 40px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width: 600px) {

@@ -100,7 +100,7 @@ export default {
         },
         { color: '#2f383d',
           fgSrc: require('../assets/amazon-fg.png'),
-          fgText: 'Amazon Global Security',
+          fgText: 'Global Security Research',
           link: '/amazon'
         }
         // { color: 'rgba(255, 0, 0, 0.5)',

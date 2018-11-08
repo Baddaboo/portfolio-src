@@ -91,9 +91,36 @@
         <color-container color="#ffd479">
           <strong>
             Due to the nature of our study, I am not able to share specific
-            details about the portal, itself.
+            details about the portal, itself and some of our findings.
           </strong>
         </color-container>
+      </page-paragraph>
+    </page-section>
+    <page-section>
+      <page-paragraph>
+        <page-sub-header title="Key Findings" />
+        <page-sub-sub-header title="Navigation did not match users' expectations" />
+        The <strong>scattered information architecture</strong> and redundancy
+        meant that some pieces of information was difficult to find. Although
+        many participants did find the correct information, some were
+        <strong>unsure if it was the right information.</strong> Additionally,
+        the <strong>extra time taken</strong> to scan the site could impact the
+        situation at hand.
+        <spacer vertical="20px" />
+        <page-sub-sub-header title="Technical Limitations Got in the Way" />
+        The GSA portal lives in a giant <strong>ecosystem of Amazon training
+        materials</strong> and is not necessarily indexed by internal search
+        engines. Additionally, most users access the site in a context within
+        a <strong>web frame that adds its own UI overlays.</strong> Some of
+        these frames, for example, contain a search bar that searches <i>all</i>
+        of Amazon's training materials, not only those of GSA.
+        <spacer vertical="20px" />
+        <page-sub-sub-header title="Users Love the GSA Portal ❤️" />
+        Most articles in GSA are written <strong>by Amazon employees</strong> in
+        their respective distribution centers or headquarters. As such, they
+        often use <strong>lingo and concepts</strong> their fellow Amazonians
+        readily recognize. This sense of organic content and shared language
+        drives <strong>trust and collectivism</strong> for employees.
       </page-paragraph>
     </page-section>
     <page-section>
@@ -104,8 +131,8 @@
         Dawson, who took time out of their day to coordinate our surveys and
         visits.
         <spacer vertical="20px" />
-        <page-image :src="amazonTeam" />
       </page-paragraph>
+      <page-image :src="amazonTeam" />
     </page-section>
   </page-container>
 </template>
