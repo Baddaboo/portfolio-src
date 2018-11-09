@@ -35,6 +35,8 @@
   * [Register your components first](#register-your-components-first)
   * [Basic](#basic)
   * [Advanced](#advanced)
+- [Integrating with other tools and frameworks](#integrating-with-other-tools-and-frameworks)
+  * [Nuxt.js](#nuxtjs)
 - [FAQ](#faq)
   * [Why so explicit (the :icon="['far', 'coffee']" syntax)?](#why-so-explicit-the-iconfar-coffee-syntax)
     + [How about a separate property for the prefix?](#how-about-a-separate-property-for-the-prefix)
@@ -127,10 +129,10 @@ The following examples are based on a project configured with [vue-cli](https://
 import Vue from 'vue'
 import App from './App'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faCoffee)
+library.add(faUserSecret)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -149,7 +151,7 @@ new Vue({
 ```javascript
 <template>
   <div id="app">
-    <font-awesome-icon icon="coffee" />
+    <font-awesome-icon icon="user-secret" />
   </div>
 </template>
 
@@ -200,16 +202,26 @@ The `icon` property of the `FontAwesomeIcon` component can be used in the follow
 
 ```javascript
 <font-awesome-icon icon="spinner" />
+<font-awesome-icon icon="align-left" />
+
 <font-awesome-icon :icon="['fas', 'spinner']" /> # Same as above
+<font-awesome-icon :icon="['fas', 'align-left']" /> # Same as above
 ```
 
-For the above to work you must add the `spinner` icon to the library.
+For the above to work you must add the `spinner` and `align-left` icon to the library.
 
 ```javascript
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faAlignLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faSpinner)
+library.add(faSpinner, faAlignLeft)
+```
+
+In the event that you are using an icon with a multi-word name please note that
+you would need to pass in the icon name using _kebab-case_ as opposed to _camelCase_.
+
+```javascript
+<font-awesome-icon icon="address-card" />  # import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 ```
 
 #### Explicit prefix (note the Vue bind shorthand because this uses an array)
@@ -343,7 +355,7 @@ library** before you bootstrap your Vue application.
 
 ```
 import Vue from 'vue'
-import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from 'vue-fontawesome'
+import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('font-awesome-layers', FontAwesomeLayers)
@@ -429,7 +441,7 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
 ```html
 <font-awesome-layers class="fa-lg">
   <font-awesome-icon icon="circle" />
-  <font-awesome-icon icon="check" transform="shrink-6" style="color: white;" />
+  <font-awesome-icon icon="check" transform="shrink-6" :style="{ color: 'white' }" />
 </font-awesome-layers>
 ```
 
@@ -440,6 +452,49 @@ Spin and pulse [animation](https://fontawesome.com/how-to-use/on-the-web/styling
   <font-awesome-icon icon="queen"/>
   <font-awesome-layers-text class="gray8" transform="down-2 shrink-8" value="Q" />
 </font-awesome-layers>
+```
+
+## Integrating with other tools and frameworks
+
+### Nuxt.js
+
+Install `@fortawesome/vue-fontawesome` and `@fortawesome/fontawesome-svg-core` and any icon packages.
+
+```
+npm install --save @fortawesome/vue-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
+```
+
+Inside your Nuxt.js project add a `plugins/fontawesome.js` file.
+
+```javascript
+import Vue from 'vue'
+import { library, config } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+// This is important, we are going to let Nuxt.js worry about the CSS
+config.autoAddCss = false
+
+// You can add your icons directly in this plugin. See other examples for how you
+// can add other styles or just individual icons.
+library.add(fas)
+
+// Register the component globally
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+```
+
+Modify `nuxt.config.js` adding to the `css` and `plugins` sections.
+
+```javascript
+css: [
+  '@fortawesome/fontawesome-svg-core/styles.css'
+]
+```
+
+```javascript
+plugins: [
+  '~/plugins/fontawesome.js'
+]
 ```
 
 ## FAQ

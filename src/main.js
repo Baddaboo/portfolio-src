@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 
 import VueResize from 'vue-resize'
 import 'vue-resize/dist/vue-resize.css'
-import InstantClick from 'instantclick'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faComment, faUserCircle, faEnvelope, faArrowAltCircleRight, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -39,8 +38,6 @@ library.add(faComment,
   faTimes)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
-
-InstantClick.init()
 
 const router = new VueRouter({
   routes: [

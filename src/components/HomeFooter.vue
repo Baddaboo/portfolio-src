@@ -101,8 +101,6 @@ h1 {
 
 .vroverlay {
   padding: 40px;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width: 600px) {
@@ -119,6 +117,9 @@ h1 {
     right: 40px;
     bottom: 40px;
     color: white;
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 }
 
