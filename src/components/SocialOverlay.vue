@@ -26,20 +26,18 @@
 </template>
 
 <script>
-import Spacer from './Spacer.vue'
-
 export default {
   name: 'SocialOverlay',
-  components: {
-    Spacer
-  },
   methods: {
     handleClick () {
       this.$emit('hideSocialOverlay')
     }
   },
   props: {
-    show: false
+    show: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>

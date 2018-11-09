@@ -61,7 +61,7 @@ export default {
         { color: '#3b5998',
           bgSrc: require('../assets/fb-bg.png'),
           fgSrc: require('../assets/facebook-fg.png'),
-          fgText: 'Facebook App Tinkering',
+          fgText: 'Facebook App Exploration',
           link: '/facebook'
         }
       ],

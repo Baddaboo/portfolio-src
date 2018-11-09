@@ -7,8 +7,14 @@
 export default {
   name: 'PageGlance',
   props: {
-    horizontal: 0,
-    vertical: 0
+    horizontal: {
+      type: String,
+      default: '0px'
+    },
+    vertical: {
+      type: String,
+      default: '0px'
+    }
   }
 }
 </script>

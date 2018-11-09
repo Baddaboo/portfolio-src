@@ -17,8 +17,14 @@
 export default {
   name: 'Fab',
   props: {
-    show: false,
-    isClose: false
+    show: {
+      type: Boolean,
+      default: false
+    },
+    isClose: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     handleClick (event) {

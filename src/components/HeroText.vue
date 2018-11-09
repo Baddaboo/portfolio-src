@@ -96,11 +96,12 @@ export default {
 }
 
 .secondary-text {
-  display: block;
   position: absolute;
 }
 .secondary-text-container {
   margin-left: 0.5em;
+  display: flex;
+  align-items: flex-end;
   transition: width 0.5s;
 }
 

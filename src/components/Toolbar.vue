@@ -48,7 +48,10 @@ export default {
     }
   },
   props: {
-    show: false
+    show: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     updateSizing (sizeClass) {
