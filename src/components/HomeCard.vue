@@ -95,6 +95,7 @@ export default {
   transition: all 0.2s;
 }
 .go-icon-collapsed {
+  padding-left: 0;
   height: 0;
   width: 0;
 }
